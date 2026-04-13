@@ -22,9 +22,10 @@ import {
 } from 'lucide-react';
 
 /**
- * 本地部署核心提醒：
- * 1. 确保所有图片文件（.jpg/.png）存放在本地项目的 /public 文件夹下。
- * 2. 代码统一使用 "/文件名" 路径访问图片。
+ * 本地部署与 GitHub Pages 路径修复说明：
+ * 1. 移除了路径前的 "/"，确保在 /portfolio/ 子目录下能正确加载 public 文件夹资源。
+ * 2. 统一后缀名为 .png 匹配实际文件。
+ * 3. 修正了 Modal 部分的语法错误。
  */
 
 // --- 静态数据定义 ---
@@ -56,7 +57,7 @@ const activities = [
   {
     year: "2023.07 - 09",
     title: { zh: "广州・平面设计长期实习", jp: "広州・グラフィックデザイン長期インターン", en: "Graphic Design Internship in Guangzhou" },
-    desc: { zh: "负责公园展示板及科普牌设计，成果已在当地落地设置。", jp: "公園の看板や广报パネルのデザインを担当。実物が現地に設置された。", en: "Designed public park information boards and panels (deployed)." }
+    desc: { zh: "负责公园展示板及科普牌设计，成果已在当地落地设置。", jp: "公園の看板や広報パネルのデザインを担当。実物が現地に設置された。", en: "Designed public park information boards and panels (deployed)." }
   },
   {
     year: "2024.10",
@@ -76,19 +77,19 @@ const activities = [
 ];
 
 const projectData = [
-  { id: 1, title: { zh: "SoundShoes", jp: "SoundShoes", en: "SoundShoes" }, tag: "Healthcare", img: "/1078123059.jpg", summary: { zh: "利用脚步声反馈辅助帕金森患者康复训练。", jp: "足音のフィードバックを用いたパーキンソン病患者の歩行リハビリ支援。", en: "Gait rehab support using auditory feedback." }, github: "https://github.com/Lizypeco", figma: "https://figma.com/file/soundshoes-proto" },
-  { id: 2, title: { zh: "驱散『力』", jp: "カを追い払う", en: "Drive Away 'CHIKARA'" }, tag: "AI Art", img: "/24.jpg", summary: { zh: "基于AI辅助Vibe Coding的视听交互装置。", jp: "AIを活用したVibe Codingによる視聴覚インスタレーション。", en: "Audio-visual installation using AI-driven coding." }, github: "https://github.com/Lizypeco", figma: "#" },
-  { id: 3, title: { zh: "FOREBIRD", jp: "FOREBIRD", en: "FOREBIRD" }, tag: "Mobility", img: "/28.jpg", summary: { zh: "面向观鸟初学者的体验型载具设计。", jp: "バードウォッチング初心者向けの体験用車両。", en: "Experience-oriented vehicle for birdwatching beginners." }, github: "#", figma: "#" },
-  { id: 4, title: { zh: "GENBU", jp: "けんぶ", en: "GENBU" }, tag: "Rescue IoT", img: "/38.jpg", summary: { zh: "自动检测溺水者并进行夹取托举的救助平台。", jp: "溺水者を自動検知し、夾んで托挙するインテリジェント救助プラットフォーム。", en: "Intelligent rescue platform for drowning victims." }, github: "#", figma: "https://figma.com/file/genbu-proto" },
-  { id: 5, title: { zh: "森のチェスウォール", jp: "森のチェスウォール", en: "Forest Chess Wall" }, tag: "Interior", img: "/03.png", summary: { zh: "通过下棋交互与环境对话的壁面装置。", jp: "チェスを通じて森林環境と対話する壁面装置。", en: "Interactive wall device connecting with nature." }, github: "#", figma: "#" },
-  { id: 6, title: { zh: "Kaavo", jp: "Kaavo", en: "Kaavo" }, tag: "Service", img: "/56.jpg", summary: { zh: "以CO2为资源的未来型宠物食品订阅服务。", jp: "CO2を資源とする未来型ペットフード・サブスクリプションサービス。", en: "Future pet food subscription using CO2." }, github: "#", figma: "https://figma.com/file/kaavo-proto" },
-  { id: 7, title: { zh: "「文化官」工作坊", jp: "文化官", en: "Cultural Officer" }, tag: "Social", img: "/65.jpg", summary: { zh: "连接留学生与日本社会未来的服务提案。", jp: "留学生と日本社会の未来をつなぐ service 提案。", en: "Service connecting international students with society." }, github: "#", figma: "#" }
+  { id: 1, title: { zh: "SoundShoes", jp: "SoundShoes", en: "SoundShoes" }, tag: "Healthcare", img: "1078123059.png", summary: { zh: "利用脚步声反馈辅助帕金森患者康复训练。", jp: "足音のフィードバックを用いたパーキンソン病患者の歩行リハビリ支援。", en: "Gait rehab support using auditory feedback." }, github: "https://github.com/Lizypeco", figma: "https://figma.com/file/soundshoes-proto" },
+  { id: 2, title: { zh: "驱散『力』", jp: "カを追い払う", en: "Drive Away 'CHIKARA'" }, tag: "AI Art", img: "24.png", summary: { zh: "基于AI辅助Vibe Coding的视听交互装置。", jp: "AIを活用したVibe Codingによる視聴覚インスタレーション。", en: "Audio-visual installation using AI-driven coding." }, github: "https://github.com/Lizypeco", figma: "#" },
+  { id: 3, title: { zh: "FOREBIRD", jp: "FOREBIRD", en: "FOREBIRD" }, tag: "Mobility", img: "28.png", summary: { zh: "面向观鸟初学者的体验型载具设计。", jp: "バードウォッチング初心者向けの体験用車両。", en: "Experience-oriented vehicle for birdwatching beginners." }, github: "#", figma: "#" },
+  { id: 4, title: { zh: "GENBU", jp: "けんぶ", en: "GENBU" }, tag: "Rescue IoT", img: "38.png", summary: { zh: "自动检测溺水者并进行夹取托举的救助平台。", jp: "溺水者を自動検知し、夾んで托挙するインテリジェント救助プラットフォーム。", en: "Intelligent rescue platform for drowning victims." }, github: "#", figma: "https://figma.com/file/genbu-proto" },
+  { id: 5, title: { zh: "森のチェスウォール", jp: "森のチェスウォール", en: "Forest Chess Wall" }, tag: "Interior", img: "46.png", summary: { zh: "通过下棋交互与环境对话的壁面装置。", jp: "チェスを通じて森林環境と対話する壁面装置。", en: "Interactive wall device connecting with nature." }, github: "#", figma: "#" },
+  { id: 6, title: { zh: "Kaavo", jp: "Kaavo", en: "Kaavo" }, tag: "Service", img: "56.png", summary: { zh: "以CO2为资源的未来型宠物食品订阅服务。", jp: "CO2を資源とする未来型ペットフード・サブスクリプションサービス。", en: "Future pet food subscription using CO2." }, github: "#", figma: "https://figma.com/file/kaavo-proto" },
+  { id: 7, title: { zh: "「文化官」工作坊", jp: "文化官", en: "Cultural Officer" }, tag: "Social", img: "65.png", summary: { zh: "连接留学生与日本社会未来的服务提案。", jp: "留学生と日本社会の未来をつなぐ service 提案。", en: "Service connecting international students with society." }, github: "#", figma: "#" }
 ];
 
 const otherWorks = [
-  "/01.jpg", "/02.jpg", "/03.png", "/04.jpg", "/05.png", 
-  "/06.jpg", "/07.jpg", "/08.jpg", "/09.jpg", "/10.png",
-  "/11.jpg", "/12.png", "/13.jpg", "/14.jpg", "/15.jpg"
+  "01.png", "02.png", "03.png", "04.png", "05.png", 
+  "06.png", "07.png", "08.png", "09.png", "10.png",
+  "11.png", "12.png", "13.png", "14.png", "15.png"
 ];
 
 const getHobbiesList = (l) => l === 'zh' ? [
@@ -96,8 +97,8 @@ const getHobbiesList = (l) => l === 'zh' ? [
   { name: "动物观察", desc: "从日常潜伏的生命微小动作中汲取灵感。" },
   { name: "语言学习", desc: "为了提高对新世界认知清晰度的挑战。" }
 ] : (l === 'jp' ? [
-  { name: "水彩画", desc: "生命の躍動を観察し、解釈して表現する時間。" },
-  { name: "動物観察", desc: "日常に潜む生命の細かな動きからインスピレーションを得る。" },
+  { name: "水彩画", desc: "生命の躍動を观察し、解釈して表現する时间。" },
+  { name: "动物观察", desc: "日常に潜む生命の細かな動きからインスピレーションを得る。" },
   { name: "言語学習", desc: "新しい世界の解像度を高めるための挑戦。" }
 ] : [
   { name: "Watercolor", desc: "Observing, interpreting, and expressing the vitality of life." },
@@ -105,6 +106,7 @@ const getHobbiesList = (l) => l === 'zh' ? [
   { name: "Language Learning", desc: "A challenge to increase the resolution of a new world." }
 ]);
 
+// 自定义 Github 图标 (SVG)
 const GithubIcon = ({ size = 20, className = "" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -127,9 +129,7 @@ const App = () => {
   const allSubSections = ['profile', 'education', 'projects', 'other', 'showcase', 'research', 'hobbies'];
 
   useEffect(() => {
-    // 动态修改网页标题，解决“发布的网页名称变成了pf-website”的问题
     document.title = "feixue's ptfl";
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       const currentSub = allSubSections.find(section => {
@@ -181,7 +181,7 @@ const App = () => {
   const t = {
     zh: {
       name: "陈 霏雪", nameEn: "CHEN FEIXUE", nameKana: "チェン　フェイシュエ", role: "デザイナー / UX与战略研究员",
-      intro: "以好奇心为原动力洞察结构，并将其重构为体验。追求实现可能性的诚实与多维度的表达，心怀对社会的责任与作为设计师的喜悦，去实现有价值的体验。",
+      intro: "以好奇心为原动力洞察结构，并将其重构为体验。追求实现可能性的诚实与多维度表达，心怀对社会的责任与作为设计师的喜悦，去实现有价值的体验。",
       nav: ["个人简介", "经历", "项目作品", "修士研究", "个人兴趣"],
       eduTitle: "经历", actTitle: "学外活动・实习・获奖记录",
       projectTitle: "项目作品", otherWorksTitle: "其它", showcaseTitle: "作品集文件", researchTitle: "修士研究", hobbiesTitle: "个人兴趣", methodsTitle: "STEPS", theoryTitle: "核心理论",
@@ -202,7 +202,7 @@ const App = () => {
     },
     jp: {
       name: "陳 霏雪", nameEn: "CHEN FEIXUE", nameKana: "チェン　フェイシュエ", role: "デザイナー / UXとストラテジック研究者",
-      intro: "好奇心を原動力に構造を捉え、体験として再構築する。実現可能性への诚実さと多角的な表現を追求し、社会への責任とデザイナーとしての喜びを胸に、価値ある体験を実装します。",
+      intro: "好奇心を原動力に構造を捉え、体験として再構築する。実現可能性への诚実さと多角的な表現を追求し、社会への责任和设计师としての喜びを胸に、価値ある体験を実装します。",
       nav: ["プロフィール", "経歴", "プロジェクト", "修士研究", "趣味"],
       eduTitle: "経歴", actTitle: "学外活動・インターン・受賞実績",
       projectTitle: "プロジェクト", otherWorksTitle: "その他", showcaseTitle: "ポートフォリオファイル", researchTitle: "修士研究", hobbiesTitle: "個人趣味", methodsTitle: "STEPS", theoryTitle: "核心理論",
@@ -213,7 +213,7 @@ const App = () => {
         { t: "質的調査とDP策定 (完了)", d: "季節性の重要性を解明し、歴史的文脈の導入や食卓風景呈现などDPを策定。" },
         { t: "プロトタイプ1开发 (反復中)", d: "3段階の对话ロジックを実装。食材だけでなく、共食者や行事など周辺要素への質問を統合。" },
         { t: "第2回調査と认知モデル (計画中)", d: "自宅で未知の料理を用いた変数制御测试を実施。习得の认知マップ和痛点を可视化。" },
-        { t: "全機能統合と専門家評価 (计划中)", d: "画面大型化・手順原子化を反映。専門家による評価によりシステム排查を実施。" },
+        { t: "全機能統合と専門家評価 (计划中)", d: "画面大型化・手順原子化を反映。専門家による评价によりシステム排查を実施。" },
         { t: "最終ユーザーテスト (计划中)", d: "実際の动线で验证。システム介入が高龄者的自己効能感と料理意欲を向上させるかを实证。" }
       ],
       theories: [
@@ -306,7 +306,6 @@ const App = () => {
             ))}
           </div>
 
-          {/* 学外活動 折叠区域 */}
           <div id="activities" className="mt-24 border-t border-stone-100 pt-16">
             <button onClick={() => setShowActivities(!showActivities)} className={`flex items-center space-x-6 ${theme.primaryText} font-black hover:text-[#F59E0B] transition-colors uppercase tracking-[0.3em] text-sm`}>
               <Briefcase size={24} />
@@ -329,7 +328,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Projects Grid (2 Rows) */}
+      {/* Projects Grid */}
       <section id="projects" className="py-32 px-8 bg-stone-100/30">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center space-x-6 mb-20"><Palette className={theme.primaryText} size={40} /><h2 className="text-4xl font-black tracking-tighter uppercase">{t[lang].projectTitle}</h2></div>
@@ -407,7 +406,7 @@ const App = () => {
                           </div>
                           <div className="text-[13px] text-slate-400 font-light leading-relaxed max-w-2xl">{step.d}</div>
                           <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80 hover:opacity-100 transition-opacity">
-                            <img src="/recipe.png" alt="" className="w-full h-auto" />
+                            <img src="recipe.png" alt="" className="w-full h-auto" />
                           </div>
                         </a>
                       ) : (
@@ -419,7 +418,7 @@ const App = () => {
                           <div className="text-[13px] text-slate-400 font-light leading-relaxed max-w-2xl">{step.d}</div>
                           {i === 3 && (
                             <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80">
-                              <img src="/recipe-image.png" alt="" className="w-full h-auto" />
+                              <img src="recipe-image.png" alt="" className="w-full h-auto" />
                             </div>
                           )}
                         </>
@@ -447,8 +446,8 @@ const App = () => {
               <div className="space-y-4">
                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 ml-2 mb-4">Selling Points</h4>
                 {[
-                  { icon: <Target size={24}/>, label: lang === 'jp' ? 'ミッション' : 'Mission', val: lang === 'jp' ? 'エイジング・イン・プレイス' : 'Aging-in-Place' },
-                  { icon: <Sparkles size={24}/>, label: lang === 'jp' ? 'テクノロジー' : 'Tech', val: lang === 'jp' ? '対話型AI' : 'Dialogue AI' },
+                  { icon: <Target size={24}/>, label: lang === 'jp' ? 'ミッション' : lang === 'zh' ? '使命' : 'Mission', val: lang === 'jp' ? 'エイジング・イン・プレイス' : 'Aging-in-Place' },
+                  { icon: <Sparkles size={24}/>, label: lang === 'jp' ? 'テクノロジー' : lang === 'zh' ? '技术' : 'Tech', val: lang === 'jp' ? '対話型AI' : 'Dialogue AI' },
                   { icon: <Users size={24}/>, label: lang === 'jp' ? '核心' : lang === 'zh' ? '核心' : 'Core', val: lang === 'jp' ? '食の記憶' : 'Food Memory' }
                 ].map((item, i) => (
                   <div key={i} className="bg-[#9FD9F6]/5 border border-[#9FD9F6]/10 p-8 rounded-sm hover:bg-[#9FD9F6]/10 transition-all group shadow-xl">
@@ -513,8 +512,18 @@ const App = () => {
                 <div className="space-y-10">
                   <h4 className="text-[10px] font-black text-stone-300 uppercase tracking-[0.5em] border-b border-stone-100 pb-4">Links</h4>
                   <div className="flex flex-col space-y-6">
-                    {selectedProject.github && selectedProject.github !== "#" && (<a href={selectedProject.github} target="_blank" rel="noreferrer" className="flex items-center space-x-6 text-slate-900 hover:text-orange-500 transition-colors group"><GithubIcon size={28} className="group-hover:scale-110 transition-transform" /><span className="font-black text-sm tracking-widest uppercase border-b-2 border-stone-100 group-hover:border-orange-200">GitHub Source</span></a>)}
-                    {selectedProject.figma && selectedProject.figma !== "#" && (<a href={selectedProject.figma} target="_blank" rel="noreferrer" className="flex items-center space-x-6 text-slate-900 hover:text-orange-500 transition-colors group"><ExternalLink size={28} className="group-hover:scale-110 transition-transform" /><span className="font-black text-sm tracking-widest uppercase border-b-2 border-stone-100 group-hover:border-orange-200">Figma Prototype</span></a>)}
+                    {selectedProject.github && selectedProject.github !== "#" && (
+                      <a href={selectedProject.github} target="_blank" rel="noreferrer" className="flex items-center space-x-6 text-slate-900 hover:text-orange-500 transition-colors group">
+                        <GithubIcon size={28} className="group-hover:scale-110 transition-transform" />
+                        <span className="font-black text-sm tracking-widest uppercase border-b-2 border-stone-100 group-hover:border-orange-200">GitHub Source</span>
+                      </a>
+                    )}
+                    {selectedProject.figma && selectedProject.figma !== "#" && (
+                      <a href={selectedProject.figma} target="_blank" rel="noreferrer" className="flex items-center space-x-6 text-slate-900 hover:text-orange-500 transition-colors group">
+                        <ExternalLink size={28} className="group-hover:scale-110 transition-transform" />
+                        <span className="font-black text-sm tracking-widest uppercase border-b-2 border-stone-100 group-hover:border-orange-200">Figma Prototype</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
