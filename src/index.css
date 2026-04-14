@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --accent: #646cff; /* 请根据原型的实际强调色修改 */
+  --accent-bg: rgba(100, 108, 255, 0.1);
+  --accent-border: #747bff;
+  --border: #e2e8f0;
+  --text-h: #1a1a1a;
+  --social-bg: #f1f5f9;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
