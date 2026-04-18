@@ -23,12 +23,12 @@ import {
 } from 'lucide-react';
 
 /**
- * 最终视觉精调、获奖经历校准与交互增强版：
- * 1. 获奖日期修正：SDGs (2024.12), DiD (2023.12), CADA (2023.05)。
- * 2. 活动排序：按日期从新到旧重新排列。
- * 3. 森林棋墙：修正名称，更新 Figma 嵌入预览代码。
- * 4. SoundShoes：保持图片格式为 .png，并列摆放图组。
- * 5. 还原：100% 录入所有项目的原始长文本描述，拒绝简化。
+ * 最终视觉精调、全量内容录入与交互增强版：
+ * 1. 「文化官」：图片排版优化，采用 flex 布局确保 workshop1/2 高度对齐且居中，不破坏比例。
+ * 2. SoundShoes：全量说明录入。功能板块展示 17/19 并列与 20/22 并列；制作过程展示 asisjm 与 function tree 并列。后缀统一为 .png。
+ * 3. 森林棋墙：修正中日文名称与说明，更新专属 Figma 嵌入预览。
+ * 4. 导航栏：文字 whitespace-nowrap 不换行处理。
+ * 5. 获奖：Kaavo 修正为 SDGs 2024 入围（Finalist）。
  */
 
 // --- 静态数据定义 ---
@@ -118,8 +118,8 @@ const projectData = [
       en: [
         { t: "Overview", d: "A mobile application providing footstep sounds as auditory cues to improve gait rehabilitation and alleviate 'Freeze of Gait' for Parkinson's patients." },
         { t: "Features", d: "Uses footsteps instead of music to reduce cognitive load; mission systems for motivation; travel playlists. Senior-friendly design with simplified units." },
-        { t: "Process", d: "Developed from clinical visits identifying fall risks. Research steered design toward simple footsteps to ensure intuitive operation for seniors." },
-        { t: "Results", d: "High-fidelity Figma prototype utilizing advanced features. Mapped comprehensive flows. Watch the demo below:" }
+        { t: "Process", d: "Developed from clinical visits identifying fall risks. Research steered design toward simple footsteps. UI logic inspired by short-video apps to ensure intuitive elderly operation." },
+        { t: "Results", d: "High-fidelity Figma prototype utilizing advanced features. Mapped comprehensive flows." }
       ]
     },
     github: "#", 
@@ -148,8 +148,8 @@ const projectData = [
       ],
       en: [
         { t: "Overview", d: "An interactive web installation exploring the relationship between noise and movement." },
-        { t: "Features", d: "Camera motion tracking. Static states trigger swarm visuals and Intensifying ASMR; movement causes them to dissipate." },
-        { t: "Process", d: "Pivoted from TD to Vibe Coding with Gemini. Rapidly generated web code and integrated ASMR audio." },
+        { t: "Features", d: "Motion detection triggers Intensifying ASMR and swarm visuals when still, which dissipate upon movement to visualize psychological distance." },
+        { t: "Process", d: "Pivoted from TD to Vibe Coding with Gemini. Rapidly prototyped web code and integrated ASMR audio for high-speed concept validation." },
         { t: "Results", d: "Fully functional web interactive prototype showcased in classroom environments. Watch the demo below:" }
       ]
     },
@@ -176,8 +176,8 @@ const projectData = [
       ],
       en: [
         { t: "Overview", d: "A smart birdwatching vehicle for urban parks, designed to lower the barrier for beginners and raise environmental awareness." },
-        { t: "Features", d: "Low-speed cruising; HUD and smart telescope for real-time guidance; evolutionary 'Family Tree' encyclopedia." },
-        { t: "Process", d: "Topic: Group project themed on 'Subculture'. Teammates handled body modeling while I managed rendering, 3D animation, and rigging. Target: Pivoted to 'Beginners', shifting positioning to an 'integrated experience space'. Challenges: Overcame massive rendering times by distributed computing." },
+        { t: "Features", d: "Low-speed cruising; HUD and smart telescope for identification; evolutionary narratives." },
+        { t: "Process", d: "Topic: Group project themed on 'Subculture'. Teammates handled body modeling while I managed rendering, 3D animation, and rigging. Target: Pivoted to 'Beginners', shifting to an 'integrated experience space'. Challenges: Overcame massive rendering times by distributed computing." },
         { t: "Results", d: "Comprehensive ecosystem including 3D renders, HUD, and App UI. Refined the HUD design in 2025." }
       ]
     },
@@ -195,19 +195,19 @@ const projectData = [
       zh: [
         { t: "概要", d: "一个聚焦于乡村未成年人溺水问题的多方联动自动救援系统与水域安全监控平台。" },
         { t: "功能特点", d: "包含水域监控预警平台、微信企业号村民端Bot以及硬件“分体式智能救生圈”。系统能在青少年下水前发出语音驱赶，若发生落水则自动出动救生圈并通知附近村民，溺水确认后才呼叫医疗资源，避免公共资源浪费。" },
-        { t: "制作过程", d: "课题发展与分工：与电信学院跨学科合作的产学研项目。电信学院要求必须使用机器学习与图像训练；设计学院要求课题必须与“主动健康”相关。\n难题与解决：工程师团队提议缺乏设计创新度。我作为桥梁，从“本能溺水反应”调研切入，提出了“事前干预与自动介入”全新用户流程。建议采用“分体式”救生圈设计，完美契合了电信学院对算法创新的诉求。" },
+        { t: "制作过程", d: "课题发展与分工：与电信学院跨学科合作的产学研项目。电信学院要求必须使用机器学习与图像训练；设计学院要求课题必须与“主动健康”相关。\n难题与解决：工程师团队提议缺乏设计创新度。我作为桥梁，从“本能溺水反应”调研切入，提出了“事前干预与自动介入”全新用户流程。建议采用“分体式”救生圈设计，并提出需要“考虑水流的动态路径优化算法”，完美契合了电信学院对算法创新的诉求。" },
         { t: "成果", d: "成功融合了技术可行性与体验创新，最终不仅产出了系统架构与UI界面，还制作了能在水里追踪位置的实体机电原型设备，并荣获了 DiD Award（东莞杯）三等奖。" }
       ],
       jp: [
         { t: "概要", d: "農村部における未成年の溺水問題に焦点を当てた、多機関連携の自動救援システムと水域監視プラットフォーム。" },
         { t: "特徴", d: "監視プラットフォーム、村民用通知Bot、分体式スマート救命浮輪で構成。音声警告、落水時の自動出動を実現。" },
-        { t: "プロセス", d: "学際的プロジェクト。本能的溺水反応の研究に基づき「事前介入」フローを提案。分体式デザインと経路最適化アルゴリズムを導入し、技術要件を満たしつつデザインによる付加価値を創出した。" },
+        { t: "プロセス", d: "学際的プロジェクト。本能的溺水反応の研究に基づき「事前介入」フローを提案。分体式デザインと経路最適化アルゴリズムを導入。" },
         { t: "成果", d: "UIに加え、水中で位置追跡可能な实物メカトロニクス・プロトタイプを制作。DiD Award 三等賞を受賞。" }
       ],
       en: [
         { t: "Overview", d: "A collaborative rescue system and safety monitoring platform focused on rural child drowning prevention." },
-        { t: "Features", d: "Includes monitoring alerts, community alerts, and split-type buoys. Features voice deterrence and automatic protocol." },
-        { t: "Process", d: "Interdisciplinary project bridging ML requirements with Active Health goals. Proposed a 'pre-intervention' flow based on drowning research." },
+        { t: "Features", d: "Water safety platform; community alert bot; split-type smart buoys. Features voice deterrence and automatic protocol." },
+        { t: "Process", d: "Interdisciplinary project bridging ML requirements with design's Active Health focus. Proposed a 'pre-intervention' flow based on drowning research." },
         { t: "Results", d: "Integrated technical feasibility with innovation. Produced a functional mechatronic prototype capable of water tracking." }
       ]
     },
@@ -228,9 +228,9 @@ const projectData = [
         { t: "成果", d: "产出了空间装置的3D渲染图以及配套手机App的高保真UI，实现了“物理设施+数字应用”的服务设计提案，并于2023年荣获了 CADA 日本コンセプトアートデザイン賞（概念艺术设计奖）铜赏。以下为交互原型预览：" }
       ],
       jp: [
-        { t: "概要", d: "中国における「隔代教育（祖父母による孫育て）」に伴う抑うつ感を緩和し、自然教育を通じて老若が対等な関係を築けるようにするサービス・空間デザイン。" },
+        { t: "概要", d: "中国における「隔代教育」に伴う抑うつ感を緩和し、自然教育を通じて老若が対等な関係を築けるようにするサービス・空間デザイン。" },
         { t: "特徴", d: "知育壁「森のチェスウォール」と踏板、Appで構成。自然教育を通じた子供の教育と、回想療法による高齢者の記憶刺激を両立。" },
-        { t: "プロセス", d: "高学歴の高齢者が孫育てにおいて主体性を失っている実態を調査で発見。共通の趣味が見出しにくい点に対し、「自然活動」を接点として遊びの中で対等な関係を再構築するソリューションを提案した。" },
+        { t: "プロセス", d: "高学歴の高齢者が孫育てにおいて主体性を失っている実態を調査で発見。共通の趣味が見出しにくい点に対し、「自然活動」を接点として遊びの中で对等な関係を再構築するソリューションを提案した。" },
         { t: "成果", d: "空間レンダリングとApp UIを制作。2023年 CADA 日本コンセプトアートデザイン賞 銅賞を受賞。以下はプロトタイプです：" }
       ],
       en: [
@@ -241,7 +241,7 @@ const projectData = [
       ]
     },
     github: "#", 
-    figma: "https://www.figma.com/proto/iz4MFtdqt7ilpepOvtaMvF/pocket-forest?page-id=1370%3A1357&node-id=1370-1359&p=f&viewport=530%2C392%2C0.1&t=OgNUfrjlElXbHe8y-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1370%3A1359&page-id=1370%3A1357" 
+    figma: "https://www.figma.com/proto/iz4MFtdqt7ilpepOvtaMvF/pocket-forest?page-id=1370%3A1357&node-id=1370-1359&p=f&viewport=530%2C392%2C0.1&t=OgNUfrjlElXbHe8y-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1370%3A1359&page-id=1370%3A1359" 
   },
   { 
     id: 6, 
@@ -254,7 +254,7 @@ const projectData = [
       zh: [
         { t: "概要", d: "依托九州大学DAC-U（二氧化碳直接回收）技术，将收集的CO2转化为宠物食品的未来型订阅制服务。" },
         { t: "功能特点", d: "用户将专用的CO2回收滤芯安装在宠物牵引绳上，在日常遛狗中回收CO2。滤芯交还至街头的“Kaavo Station”后，用户可获得积分折扣。App内设有宠物排行榜，激励用户持续参与。" },
-        { t: "制作过程", d: "背景为探索DAC-U技术的社会化应用。难点在于合成淀粉的伦理与接受度。我提出将其应用于“宠物食品”以规避心理与法律风险。团队协作构思了硬件、订阅模式和排行榜机制。" },
+        { t: "制作过程", d: "背景为探索DAC-U技术的社会化应用。难点在于合成淀粉的伦理性与接受度。我提出将其应用于“宠物食品”以规避心理与法律风险。团队协作构思了硬件、订阅模式和排行榜机制。" },
         { t: "成果", d: "完成了从概念提案、硬件3D渲染、蓝图到App UI的全面设计。荣获 SDGs Design International Awards 入围奖（入选）。以下为演示视频：" }
       ],
       jp: [
@@ -644,7 +644,7 @@ const App = () => {
                         <a href="https://gemini.google.com/share/6c123f0d0e8f" target="_blank" rel="noopener noreferrer" className="block">
                           <div className="flex items-center gap-4 mb-2">
                             <span className="text-[#9FD9F6] font-mono font-black text-xs uppercase tracking-widest whitespace-nowrap">Stage 0{i+1}</span>
-                            <div className="font-black text-white text-base uppercase tracking-wider flex items-center gap-2">{step.t} <ExternalLink size={14} className="text-[#F59E0B]" /></div>
+                            <div className="font-black text-white text-sm md:text-base uppercase tracking-wider flex items-center gap-2">{step.t} <ExternalLink size={14} className="text-[#F59E0B]" /></div>
                           </div>
                           <div className="text-slate-400 font-light leading-relaxed max-w-2xl">{step.d}</div>
                           <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80 hover:opacity-100 transition-opacity"><img src="recipe.png" alt="" className="w-full h-auto" /></div>
@@ -789,11 +789,11 @@ const App = () => {
                         </div>
                       )}
 
-                      {/* 「文化官」工作坊 特殊逻辑：并列展示图片 */}
+                      {/* 「文化官」工作坊 特殊逻辑：水平排列图片且高度对齐 */}
                       {selectedProject.id === 7 && (item.t === "成果" || item.t === "Results") && (
-                        <div className="mt-8 grid grid-cols-2 gap-4">
-                           <img src="workshop1.png" alt="Workshop System" className="rounded-sm shadow-md border border-stone-100 w-full h-auto" />
-                           <img src="workshop2.png" alt="Workshop Flow" className="rounded-sm shadow-md border border-stone-100 w-full h-auto" />
+                        <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-6">
+                           <img src="workshop1.png" alt="Workshop System" className="rounded-sm shadow-md border border-stone-100 h-auto max-h-[350px] md:max-h-[450px] w-auto object-contain" />
+                           <img src="workshop2.png" alt="Workshop Flow" className="rounded-sm shadow-md border border-stone-100 h-auto max-h-[350px] md:max-h-[450px] w-auto object-contain" />
                         </div>
                       )}
 
