@@ -23,12 +23,12 @@ import {
 } from 'lucide-react';
 
 /**
- * 最终视觉精调、全量内容录入与导航优化版：
- * 1. 导航栏：添加 whitespace-nowrap 确保文字不换行。
- * 2. SoundShoes：100% 还原详尽说明。功能特点板块展示 17/19 并列与 20/22 并列；制作过程展示 asisjm 与 function tree 并列。后缀统一为 .png。
- * 3. 森林棋墙：修正中日文名称与全量说明，更新专属 Figma 嵌入预览。
- * 4. 获奖校准：Kaavo 修正为 SDGs 2024 入围（Finalist），明确企业奖归属。
- * 5. 弹窗布局：封面图置顶完整显示，随页面滚动。
+ * 最终视觉精调、全量内容录入与交互增强版：
+ * 1. 「文化官」：サービス文案修正，100%还原背景/调研/痛点长文本，成果并列摆放 workshop1/2 png。
+ * 2. SoundShoes：全量说明录入。功能板块展示 17/19 并列与 20/22 并列；制作过程展示 asisjm 与 function tree 并列。后缀统一为 .png。
+ * 3. 森林棋墙：修正中日文名称与说明，更新专属 Figma 嵌入。
+ * 4. 导航栏：文字不换行处理。
+ * 5. 获奖：Kaavo 修正为 SDGs 2024 入围（Finalist）。
  */
 
 // --- 静态数据定义 ---
@@ -59,12 +59,12 @@ const activities = [
   {
     year: "2024.10",
     title: { zh: "SDGs Design International Awards 2024", jp: "SDGs デザインインターナショナルアワード 2024", en: "SDGs Design International Awards 2024" },
-    desc: { zh: "项目：Kaavo。荣获入围奖（Shortlisted / Finalist）。探索 DAC-U 二氧化碳回收技术的社会化应用。（注：该届企业奖由其他项目获得）", jp: "プロジェクト：Kaavo。ファイナリスト（入選）に選出。DAC-U（二酸化炭素直接回収）技術の社会実装を提案。", en: "Project: Kaavo. Shortlisted as a Finalist. Proposed the social application of DAC-U CO2 capture technology." }
+    desc: { zh: "项目：Kaavo。荣获入围奖（Shortlisted / 入选）。探索 DAC-U 二氧化碳回收技术的社会化应用。（注：企业奖由其他项目获得）", jp: "プロジェクト：Kaavo。ファイナリスト（入選）に選出。DAC-U（二酸化炭素直接回収）技術の社会実装を提案。", en: "Project: Kaavo. Shortlisted as a Finalist. Proposed the social application of DAC-U CO2 capture technology." }
   },
   {
     year: "2023.12",
     title: { zh: "CADA 日本概念艺术设计奖", jp: "CADA 日本コンセプトアートデザイン賞", en: "CADA Japan Concept Art Design Award" },
-    desc: { zh: "项目：森林棋墙与森林乐队。荣获铜奖。针对中国“隔代育儿”现象的自然教育空间提案。", jp: "プロジェクト：森のチェスウォールと森のおんがくか。銅賞を受賞。中国における「隔代教育」の心理的課題を解決する空間デザイン。", en: "Project: Forest Chess Wall & Band. Awarded Bronze Prize. A spatial design intervention for 'intergenerational parenting' in China." }
+    desc: { zh: "项目：森林棋墙与森林乐队。荣获铜奖。针对中国“隔代育儿”现象的自然教育空间提案。", jp: "プロジェクト：森のチェスウォールと森のおんがくか。銅賞を受賞。中国における「隔代教育」の課題を解決する空間デザイン。", en: "Project: Forest Chess Wall & Band. Awarded Bronze Prize. A spatial design intervention for 'intergenerational parenting' in China." }
   },
   {
     year: "2023.11",
@@ -111,15 +111,15 @@ const projectData = [
       ],
       jp: [
         { t: "概要", d: "様々な「足音」を聴覚提示として提供することで、パーキンソン病患者の歩行訓練体験を改善し、すくみ足を緩和することを目指したモバイルアプリ。" },
-        { t: "特徴", d: "コアメカニズム：音楽の代わりに「足音」を聴覚の手がかりとし、空間情報を利用して認知負荷を軽減。ミッションシステムやJourney Set機能を搭載。高齢者向けにBPM表記を「歩/分」に変更し、吸着型スライダーを採用。" },
-        { t: "プロセス", d: "課題：病院見学を通じ、訓練の単調さと転倒リスクを把握。当初はゲーム化を検討したが、研究により多モード提示は転倒リスクを高めることが判明。最終的に「シンプルな足音」に集約。UIはスワイプ操作を採用。" },
+        { t: "特徴", d: "コアメカニズム：音楽の代わりに「足音」を聴覚の手がかりとし、空間情報を利用して認知負荷を軽減。ミッションシステムによるモチベーション維持、リハビリを「旅」に変えるJourney Set機能、医師によるデータ管理機能を搭載。" },
+        { t: "プロセス", d: "背景：病院見学を通じ、訓練の単調さと転倒リスクを把握。認知負荷を避けるためシンプルな足音に集約。UIはスワイプ操作を採用。" },
         { t: "成果", d: "Figmaで高精度プロトタイプを制作。VariantやAuto layoutを駆使。以下は成果のデモです：" }
       ],
       en: [
         { t: "Overview", d: "A mobile application providing footstep sounds as auditory cues to improve gait rehabilitation for Parkinson's patients." },
         { t: "Features", d: "Uses footsteps instead of music to reduce cognitive load; mission systems for motivation; travel playlists. Senior-friendly design with simplified units." },
-        { t: "Process", d: "Developed from clinical visits identifying fall risks. Research steered design away from complex cues to simple footsteps. UI logic inspired by short-video apps." },
-        { t: "Results", d: "High-fidelity Figma prototype utilizing advanced features. View the prototype below:" }
+        { t: "Process", d: "Developed from clinical visits identifying fall risks. Research steered design toward simple footsteps to ensure intuitive elderly operation." },
+        { t: "Results", d: "High-fidelity Figma prototype utilizing advanced features. Mapped comprehensive flows." }
       ]
     },
     github: "#", 
@@ -143,7 +143,7 @@ const projectData = [
       jp: [
         { t: "概要", d: "不快なノイズと身体動作の関係を探求する、視聴覚インタラクティブWebインスタレーションゲーム。" },
         { t: "特徴", d: "カメラで動作を検知。静止すると「蚊」の文字が画面を埋め尽くしASMRが激化、動くと消散する演出を通じ、心理的距離感を可視化。" },
-        { t: "プロセス", d: "TouchDesignerから「Vibe Coding」へ転換。ASMR音源を統合し、概念実証とプロトタイプ構築を実現。" },
+        { t: "プロセス", d: "当初はTouchDesignerを検討したが、Geminiを活用した「Vibe Coding」へ転換。ASMR音源を統合し、概念実証とプロトタイプ構築を実現。" },
         { t: "成果", d: "ブラウザで動作するプロトタイプを開発し実地展示。以下はデモビデオです：" }
       ],
       en: [
@@ -171,14 +171,14 @@ const projectData = [
       jp: [
         { t: "概要", d: "初心者や一般向けの未来型スマートバードウォッチング車両。敷居を下げ、自然保護意識の喚起を目的としたデザイン。" },
         { t: "特徴", d: "低速走行による歩行疲労軽減、リアルタイム識別・観察指導。進化と絶滅の物語を伝える「家系図式図鑑」を内蔵。" },
-        { t: "プロセス", d: "课题と分担：モビリティデザインの授業における「サブカルチャー」をテーマとしたグループプロジェクト。他メンバーが車体とHMIを、私が渲染、3Dアニメ、リギングを担当。ターゲット転換：コア層には価値が低いためターゲットを「一般層/初心者」へ転換。移動手段から「体験空間」へと再定義。技术：分布式渲染手法により膨大な処理時間を克服。" },
+        { t: "プロセス", d: "课题と分担：モビリティデザインの授業における「サブカルチャー」をテーマとしたグループプロジェクト。他メンバーが車体とHMIを、私が渲染、3Dアニメ、リギングを担当。ターゲット転換：調査の結果、コア層には価値が低いためターゲットを「一般層/初心者」へ転換。移動手段から「体験空間」へと再定義した。技术：分布式渲染手法により膨大な処理時間を克服。" },
         { t: "成果", d: "3D渲染、HUD、App UI、プロモーションビデオを構築。2025年にはHUDデザインのブラッシュアップを実施。" }
       ],
       en: [
         { t: "Overview", d: "A smart birdwatching vehicle for urban parks, designed to lower the barrier for beginners and raise environmental awareness." },
-        { t: "Features", d: "Low-speed cruising; HUD and smart telescope for identification; 'Family Tree' encyclopedia with evolutionary narratives." },
-        { t: "Process", d: "Topic: Group project themed on 'Subculture'. Teammates handled body modeling while I managed rendering, 3D animation, and rigging. Target: Pivoted to 'Beginners', shifting to an 'integrated experience space'. Challenges: Overcame massive rendering times by distributed processing." },
-        { t: "Results", d: "Comprehensive ecosystem including 3D renders, HUD, and App UI. Refined the HUD design in 2025." }
+        { t: "Features", d: "Low-speed cruising; HUD and smart telescope for real-time identification and observation guidance; evolutionary narratives." },
+        { t: "Process", d: "Topic: Group project themed on 'Subculture'. Teammates handled body modeling while I managed rendering, 3D animation, and rigging. Target: Pivoted to 'Beginners', shifting positioning to an 'integrated experience space'. Challenges: Overcame massive rendering times by distributed processing." },
+        { t: "Results", d: "Full visual ecosystem including 3D renders, HUD projections, App UI, and videos. Refined the HUD design in 2025." }
       ]
     },
     featureImages: ["image 71.png", "image 70.png", "hud1.png", "hud2.png", "hud3.png", "hud4.png"],
@@ -202,7 +202,7 @@ const projectData = [
         { t: "概要", d: "農村部における未成年の溺水問題に焦点を当てた、多機関連携の自動救援システムと水域監視プラットフォーム。" },
         { t: "特徴", d: "監視プラットフォーム、村民用通知Bot、分体式スマート救命浮輪で構成。音声警告、落水時の自動出動を実現。" },
         { t: "プロセス", d: "学際的プロジェクト。本能的溺水反応の研究に基づき「事前介入」フローを提案。分体式デザインと経路最適化アルゴリズムを導入。" },
-        { t: "成果", d: "UIに加え、水中で位置追跡可能な実物メカトロニクス・プロトタイプを制作。DiD Award 三等賞を受賞。" }
+        { t: "成果", d: "UIに加え、水中で位置追跡可能な实物メカトロニクス・プロトタイプを制作。DiD Award 三等賞を受賞。" }
       ],
       en: [
         { t: "Overview", d: "A collaborative rescue system and safety monitoring platform focused on rural child drowning prevention." },
@@ -218,30 +218,30 @@ const projectData = [
     title: { zh: "森林棋墙与森林乐队", jp: "森のチェスウォールと森のおんがくか", en: "Forest Chess Wall & Band" }, 
     tag: "Interior", 
     img: "46.png", 
-    summary: { zh: "通过自然教育缓解“隔代育儿”压抑心理的服务与空间。", jp: "祖父母による孫育てに伴う抑うつ感を緩和するサービスデザイン。", en: "Service space design for intergenerational parenting." },
+    summary: { zh: "通过自然教育缓解“隔代育儿”压抑心理的服务与空间设计。", jp: "祖父母による孫育てに伴う抑うつ感を緩和するサービスデザイン。", en: "Service space design for intergenerational parenting." },
     figmaEmbedUrl: "https://embed.figma.com/proto/iz4MFtdqt7ilpepOvtaMvF/pocket-forest?page-id=1370%3A1357&node-id=1370-1359&p=f&viewport=530%2C392%2C0.1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1370%3A1359&embed-host=share",
     details: {
       zh: [
         { t: "概要", d: "一项旨在缓解中国“隔代育儿”中老年人压抑心理，通过自然教育手段帮助老幼建立平等关系的服务与空间设计。" },
-        { t: "功能特点", d: "包含实体设施“森林棋墙”（翻转方块认识动植物）和“梅花桩森林乐队”（互动装置），配套有智能导览App。通过互动让儿童获得教育，同时利用“回想疗法”唤起老年人的回忆。" },
+        { t: "功能特点", d: "包含实体设施“森林棋墙”（翻转方块认识动植物）和“梅花桩森林乐队”（互动装置），配套有智能导览App。通过自然互动让儿童获得教育，同时利用“回想疗法”唤起老年人的回忆。" },
         { t: "制作过程", d: "通过调研发现高知老年人在带孙辈时缺乏主体感，且老幼之间缺乏体力匹配的共同爱好。为解决这一痛点，提取了“自然活动”这一交集，让老幼在游玩中找回对等的关系。" },
-        { t: "成果", d: "产出了空间装置的3D渲染图以及配套手机App的高保真UI，实现了“物理设施+数字应用”的服务设计提案，并于2023年荣获了 CADA 日本コンセプトアートデザイン賞 铜奖。以下为交互原型预览：" }
+        { t: "成果", d: "产出了空间装置的3D渲染图以及配套手机App的高保真UI，实现了“物理设施+数字应用”的服务设计提案，并于2023年荣获了 CADA 日本コンセプトアートデザイン賞（概念艺术设计奖）铜赏。以下为交互原型预览：" }
       ],
       jp: [
-        { t: "概要", d: "中国における「隔代教育」に伴う抑うつ感を緩和し、自然教育を通じて老若が対等な関係を築けるようにするサービス・空間デザイン。" },
-        { t: "特徴", d: "知育壁「森のチェスウォール」と踏板、Appで構成。回想療法を活用し、高齢者の記憶を刺激しながら孫と共に学ぶ体験を提供。" },
-        { t: "プロセス", d: "共通の趣味が見出しにくい点に対し、「自然活動」を接点として、遊びの中で対等な関係を再構築するソリューションを提案した。" },
+        { t: "概要", d: "中国における「隔代教育（祖父母による孫育て）」に伴う抑うつ感を緩和し、自然教育を通じて老若が対等な関係を築けるようにするサービス・空間デザイン。" },
+        { t: "特徴", d: "知育壁「森のチェスウォール」と踏板、Appで構成。自然教育を通じた子供の教育と、回想療法による高齢者の記憶刺激を両立。" },
+        { t: "プロセス", d: "高学歴の高齢者が孫育てにおいて主体性を失っている実態を調査で発見。共通の趣味が見出しにくい点に対し、「自然活動」を接点として遊びの中で対等な関係を再構築するソリューションを提案した。" },
         { t: "成果", d: "空間レンダリングとApp UIを制作。2023年 CADA 日本コンセプトアートデザイン賞 銅賞を受賞。以下はプロトタイプです：" }
       ],
       en: [
-        { t: "Overview", d: "A service design aiming to alleviate psychological stress in Chinese intergenerational parenting through nature education." },
-        { t: "Features", d: "Features a botanical learning wall and interactive forest band, with a smart guide App. Combines education with Reminiscence Therapy." },
+        { t: "Overview", d: "A service and space design aiming to alleviate psychological stress in Chinese intergenerational parenting through nature education." },
+        { t: "Features", d: "Features a botanical learning wall and interaction forest band, with a smart guide App. Combines education with Reminiscence Therapy." },
         { t: "Process", d: "Bridged the generation gap through shared nature-based activities that restore equal footing between grandparents and children." },
         { t: "Results", d: "Produced 3D renderings and high-fidelity App UI. Won Bronze at the 2023 CADA Awards. Interact with the prototype below:" }
       ]
     },
     github: "#", 
-    figma: "https://www.figma.com/proto/iz4MFtdqt7ilpepOvtaMvF/pocket-forest?page-id=1370%3A1357&node-id=1370-1359&p=f&viewport=530%2C392%2C0.1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1370%3A1359&page-id=1370%3A1359" 
+    figma: "https://www.figma.com/proto/iz4MFtdqt7ilpepOvtaMvF/pocket-forest?page-id=1370%3A1357&node-id=1370-1359&p=f&viewport=530%2C392%2C0.1&t=OgNUfrjlElXbHe8y-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1370%3A1359&page-id=1370%3A1357" 
   },
   { 
     id: 6, 
@@ -254,7 +254,7 @@ const projectData = [
       zh: [
         { t: "概要", d: "依托九州大学DAC-U（二氧化碳直接回收）技术，将收集的CO2转化为宠物食品的未来型订阅制服务。" },
         { t: "功能特点", d: "用户将专用的CO2回收滤芯安装在宠物牵引绳上，在日常遛狗中回收CO2。滤芯交还至街头的“Kaavo Station”后，用户可获得积分折扣。App内设有宠物排行榜，激励用户持续参与。" },
-        { t: "制作过程", d: "背景为探索DAC-U技术的社会化应用。难点在于合成淀粉的伦理性与接受度。我提出将其应用于“宠物食品”以规避心理与法律风险。团队协作构思了硬件、订阅模式和排行榜机制。" },
+        { t: "制作过程", d: "背景为探索DAC-U技术的社会化应用。难点在于合成淀粉的伦理与接受度。我提出将其应用于“宠物食品”以规避心理与法律风险。团队协作构思了硬件、订阅模式和排行榜机制。" },
         { t: "成果", d: "完成了从概念提案、硬件3D渲染、蓝图到App UI的全面设计。荣获 SDGs Design International Awards 入围奖（入选）。以下为演示视频：" }
       ],
       jp: [
@@ -274,15 +274,35 @@ const projectData = [
   },
   { 
     id: 7, 
-    title: { zh: "「文化官」工作坊", jp: "文化官", en: "Cultural Officer" }, 
+    title: { zh: "「文化官」工作坊", jp: "「文化官」ワークショップ", en: "Cultural Officer Workshop" }, 
     tag: "Social", 
     img: "65.png", 
-    summary: { zh: "连接留学生与日本社会未来的服务提案。", jp: "留学生と日本社会の未来をつなぐ service 提案。", en: "Service connecting international students with society." },
+    summary: { zh: "连接留学生与日本社会未来的服务提案。", jp: "留学生と日本社会の未来をつなぐ サービス 提案。", en: "Service connecting international students with society." },
     details: {
-      zh: [{ t: "概要", d: "针对留学生与当地社会隔阂问题的工作坊成果展示。" }],
-      jp: [{ t: "概要", d: "留学生と地域社会の壁を取り払うためのワークショップ成果。" }],
-      en: [{ t: "Overview", d: "Workshop proposal for better integration of international students into local communities." }]
+      zh: [
+        { t: "概要", d: "「文化官」工作坊是一个通过有意义的勤工俭学体验，在为学生提供理解当地文化和社会机会的同时，促进人与人之间连接的活动展示。" },
+        { t: "制作背景", d: "近年来，受少子老龄化影响，日本社会面临劳动力不足的严峻挑战，外国人居住者也随之增加。为了防止将来社会出现按民族或国籍分断、孤立的结构，探索外国人与当地社会的相互理解与融合显得至关重要。" },
+        { t: "调研与痛点", d: "访谈发现，许多留学生为了理解日本文化、提高语学力并建立社交而开始兼职，但实际多从事极其忙碌、缺乏交流机会且体力负担沉重的饮食业，难以转化为文化成长。经济宽裕的留学生常因感受不到此类兼职的魅力而轻易辞职。" },
+        { t: "设计方案", d: "构思了“文化官”勤工俭学模式，让留学生在更具文化文脉的场所（如文化设施等）工作。同时允许一定数量的日本学生参加，将其打造为跨文化交流的场域，在增加地域文化关切的同时，建立有深度的社会连接。" },
+        { t: "成果", d: "产出了系统服务蓝图及各利益相关方的连接关系图。以下为工作坊流程与服务体系展示：" }
+      ],
+      jp: [
+        { t: "概要", d: "「文化官」ワークショップは、地域の文化や社会を理解する機会を学生に提供しながら、アルバイトを通じて人と人とのつながりを促進することを目的とした活動です。" },
+        { t: "制作背景", d: "近年、日本社会は少子高齢化の影響により労働力不足に直面しており、それに伴い外国人居住者の増加傾向も見られます。将来的に人々が民族や国籍ごとに分断され孤立して暮らすような社会構造にならないためには、外国人と地域社会の相互理解と融合が重要だと考えました。" },
+        { t: "調査と課題", d: "留学生へのインタビューの結果、多くの学生が日本文化への理解や日本人との交流、適応を目的にアルバイトを始めますが、実際には多忙な飲食業などが多く、文化的・言語的な成長にはつながりにくいという課題を発見しました。経済的に余裕のある留学生は、そのような環境に魅力を感じられず辞めてしまうケースも少なくありません。" },
+        { t: "コンセプト", d: "留学生が地域文化への理解を深め、社会的な接点を持てるような、より意味のあるアルバイト体験を提供するサービスとして構想しました。また、この活動には日本人学生も一定数参加できるようにし、交流の場としての役割も担います。" },
+        { t: "成果", d: "サービスシステム図およびステークホルダーマップを制作。以下はワークショップのフローと体系図です：" }
+      ],
+      en: [
+        { t: "Overview", d: "The 'Cultural Officer' workshop is an initiative designed to provide students with opportunities to understand local culture and society while fostering human connections through meaningful part-time work." },
+        { t: "Background", d: "Amid Japan's labor shortage due to an aging population, integrating foreign residents is crucial. To prevent future social fragmentation and isolation by nationality, we explored ways to foster mutual understanding between foreigners and local communities." },
+        { t: "Research & Pain Points", d: "Interviews revealed that while international students seek cultural immersion through work, high-pressure service jobs offer little growth or social interaction. Many lose motivation and quit due to the lack of meaningful engagement." },
+        { t: "Concept", d: "We envisioned a service providing culturally significant work experiences. By allowing local Japanese students to participate as well, the program serves as a cross-cultural platform for genuine social integration and community care." },
+        { t: "Results", d: "Developed service blueprints and stakeholder maps. View the workshop flow and system architecture below:" }
+      ]
     },
+    // 添加工作坊图片组
+    workshopImages: ["workshop1.png", "workshop2.png"],
     github: "#", figma: "#" 
   }
 ];
@@ -428,7 +448,7 @@ const App = () => {
     },
     en: {
       name: "Chen Feixue", nameEn: "CHEN FEIXUE", nameKana: "CHEN FEIXUE", role: "Designer / UX & Strategic Researcher",
-      intro: "Driven by curiosity, I decode structures to reconstruct them into meaningful experiences. I strive for integrity in feasibility and multifaceted expression, with a sense of social responsibility.",
+      intro: "Driven by curiosity, I decode structures to reconstruct them into meaningful experiences. I strive for integrity in feasibility and multifaceted expression, implementing valuable experiences with a sense of social responsibility.",
       nav: ["Profile", "Experience", "Projects", "Portfolio", "Research", "Hobbies"],
       eduTitle: "Experience History", actTitle: "Extracurricular, Internship & Awards",
       projectTitle: "Projects", otherWorksTitle: "Other", showcaseTitle: "Portfolio File", researchTitle: "Master's Research", hobbiesTitle: "Interests", methodsTitle: "STEPS",
@@ -443,7 +463,7 @@ const App = () => {
         { t: "Final Validation (Planned)", d: "Verified results in real kitchen flows." }
       ],
       theories: [
-        { t: "Reminiscence", d: "Boosting cognitive function via memories." },
+        { t: "Reminiscence", d: "Boosting cognitive function." },
         { t: "Culinary", d: "Using meal preparation for rehab." }
       ],
       points: [
@@ -625,7 +645,7 @@ const App = () => {
                         <a href="https://gemini.google.com/share/6c123f0d0e8f" target="_blank" rel="noopener noreferrer" className="block">
                           <div className="flex items-center gap-4 mb-2">
                             <span className="text-[#9FD9F6] font-mono font-black text-[10px] uppercase tracking-widest whitespace-nowrap">Stage 0{i+1}</span>
-                            <div className="font-black text-white text-[13px] md:text-base uppercase tracking-wider flex items-center gap-2">{step.t} <ExternalLink size={14} className="text-[#F59E0B]" /></div>
+                            <div className="font-black text-white text-sm md:text-base uppercase tracking-wider flex items-center gap-2">{step.t} <ExternalLink size={14} className="text-[#F59E0B]" /></div>
                           </div>
                           <div className="text-slate-400 font-light leading-relaxed max-w-2xl">{step.d}</div>
                           <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80 hover:opacity-100 transition-opacity"><img src="recipe.png" alt="" className="w-full h-auto" /></div>
@@ -648,7 +668,7 @@ const App = () => {
                   <div key={i} className="bg-white/5 border border-white/10 p-6 rounded-sm hover:border-[#9FD9F6]/50 transition-all group">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="text-[#9FD9F6]">{i === 0 ? <Brain size={20}/> : <Coffee size={20}/>}</div>
-                      <div className="text-[13px] font-black text-white uppercase tracking-widest">{theory.t}</div>
+                      <div className="text-sm font-black text-white uppercase tracking-widest">{theory.t}</div>
                     </div>
                     <div className="text-[11px] text-slate-400 font-light leading-relaxed">{theory.d}</div>
                   </div>
@@ -672,7 +692,7 @@ const App = () => {
 
       {/* Interests */}
       <section id="hobbies" className="py-32 px-8 bg-white border-t border-stone-100">
-        <div className="max-w-5xl mx-auto px-8"><div className="flex items-center space-x-6 mb-20"><Heart className={theme.accent} size={40} /><h2 className="text-4xl font-black tracking-tighter uppercase">{t[lang].hobbiesTitle}</h2></div><div className="grid grid-cols-1 md:grid-cols-3 gap-12">{getHobbiesList(lang).map((hobby, i) => (<div key={i} className="p-12 bg-stone-50 border border-transparent hover:border-[#9FD9F6] transition-all group rounded-sm shadow-sm hover:shadow-2xl"><div className={`w-16 h-16 bg-white text-slate-400 rounded-sm flex items-center justify-center mb-10 group-hover:bg-[#9FD9F6] group-hover:text-white transition-all shadow-sm`}>{i === 0 ? <Palette size={32} /> : i === 1 ? <Camera size={32} /> : <Languages size={32} />}</div><h3 className="text-2xl font-black mb-4 text-slate-900 tracking-tight">{hobby.name}</h3><p className="text-slate-500 text-[11px] md:text-sm leading-[2] font-light italic">{hobby.desc}</p></div>))}</div></div>
+        <div className="max-w-5xl mx-auto px-8"><div className="flex items-center space-x-6 mb-20"><Heart className={theme.accent} size={40} /><h2 className="text-4xl font-black tracking-tighter uppercase">{t[lang].hobbiesTitle}</h2></div><div className="grid grid-cols-1 md:grid-cols-3 gap-12">{getHobbiesList(lang).map((hobby, i) => (<div key={i} className="p-12 bg-stone-50 border border-transparent hover:border-[#9FD9F6] transition-all group rounded-sm shadow-sm hover:shadow-2xl"><div className={`w-16 h-16 bg-white text-slate-400 rounded-sm flex items-center justify-center mb-10 group-hover:bg-[#9FD9F6] group-hover:text-white transition-all shadow-sm`}>{i === 0 ? <Palette size={32} /> : i === 1 ? <Camera size={32} /> : <Languages size={32} />}</div><h3 className="text-2xl font-black mb-4 text-slate-900 tracking-tight">{hobby.name}</h3><p className="text-slate-500 text-base leading-[2] font-light italic">{hobby.desc}</p></div>))}</div></div>
       </section>
 
       {/* Footer */}
@@ -767,6 +787,14 @@ const App = () => {
                       {selectedProject.id === 3 && (item.t === "制作过程" || item.t === "プロセス" || item.t === "Process") && (
                         <div className="mt-8">
                           <img src="journeymap.png" alt="Journey Map" className="rounded-sm shadow-md border border-stone-100 w-full h-auto" />
+                        </div>
+                      )}
+
+                      {/* 「文化官」工作坊 特殊逻辑：并列展示图片 */}
+                      {selectedProject.id === 7 && (item.t === "成果" || item.t === "Results") && (
+                        <div className="mt-8 grid grid-cols-2 gap-4">
+                           <img src="workshop1.png" alt="Workshop System" className="rounded-sm shadow-md border border-stone-100 w-full h-auto" />
+                           <img src="workshop2.png" alt="Workshop Flow" className="rounded-sm shadow-md border border-stone-100 w-full h-auto" />
                         </div>
                       )}
 
