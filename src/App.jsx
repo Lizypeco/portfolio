@@ -23,12 +23,15 @@ import {
 } from 'lucide-react';
 
 /**
- * 最终视觉精调、全量内容录入与交互增强版：
- * 1. 「文化官」：图片排版优化，采用 flex 布局确保 workshop1/2 高度对齐且居中，不破坏比例。
- * 2. SoundShoes：全量说明录入。功能板块展示 17/19 并列与 20/22 并列；制作过程展示 asisjm 与 function tree 并列。后缀统一为 .png。
- * 3. 森林棋墙：修正中日文名称与说明，更新专属 Figma 嵌入预览。
- * 4. 导航栏：文字 whitespace-nowrap 不换行处理。
- * 5. 获奖：Kaavo 修正为 SDGs 2024 入围（Finalist）。
+ * 最终视觉精调、理念重构与内容全量录入版：
+ * 1. 理念重构：将个人理念升级为 Main Copy（大标题 - 蓝色）、Sub Copy（副标题 - 黑色）及 Lead Text（引言 - 无换行）结构，并适配中、日、英三语。
+ * 2. 布局优化：删除职业标签。使用网格布局实现左侧个人基本介绍占 3/10 宽度 (col-span-3)。
+ * 右侧个人理念占 7/10 宽度 (col-span-7)，并将左侧蓝色竖线（border-l-2）移至右侧整体容器，加长并与所有理念内容完美对齐。
+ * 3. 导航栏：文字 whitespace-nowrap 不换行处理。
+ * 4. 获奖与经历：SDGs (2024.12), DiD (2023.12), CADA (2023.05) 按时间从新到旧精确排序。
+ * 5. SoundShoes：100% 还原详尽说明。功能特点板块展示 17/19 并列与 20/22 并列；制作过程展示 asisjm 与 function tree 并列。后缀统一为 .png。
+ * 6. 森林棋墙：项目 5 名称改为“森林棋墙与森林乐队 / 森のチェスウォールと森のおんがくか”，更新 Figma 嵌入。
+ * 7. 弹窗布局：封面图置顶完整显示（不裁剪），随页面滚动，标签右上角。
  */
 
 // --- 静态数据定义 ---
@@ -46,7 +49,7 @@ const educationData = [
   {
     year: "2024.10 - 2025.03",
     title: { zh: "九州大学大学院 艺术工学府 研究生", jp: "九州大学大学院 芸術工学府 研究生", en: "Kyushu University Graduate School of Design (Research Student)" },
-    desc: { zh: "改进修士研究方向，参加设计工作坊。", jp: "修士研究の方向性を改善し、デザインワークショップに参加。", en: "Refined research direction and participated in design workshops." }
+    desc: { zh: "改进修士研究方向，参加设计工作坊。", jp: "修士研究の方向性を改善し、デザインワークショップ参加。", en: "Refined research direction and participated in design workshops." }
   },
   {
     year: "2025.04 - Present",
@@ -59,7 +62,7 @@ const activities = [
   {
     year: "2026.01",
     title: { zh: "TAKI CORPORATION UI/UX 实习", jp: "たきコーポレーション UI/UX インターン", en: "TAKI CORPORATION UI/UX Internship" },
-    desc: { zh: "从调研分析到UI设计，一站式制作并发表APP提案。", jp: "調査からUI設計まで一貫してアプリ案を制作・発表。", en: "Produced and presented app proposals from research to UI design." }
+    desc: { zh: "从调研分析 to UI设计，一站式制作并发表APP提案。", jp: "調査からUI設計まで一貫してアプリ案を制作・発表。", en: "Produced and presented app proposals from research to UI design." }
   },
   {
     year: "2025.08",
@@ -74,7 +77,7 @@ const activities = [
   {
     year: "2024.10",
     title: { zh: "Global Game Jam 工作坊", jp: "Global Game Jam Workshop", en: "Global Game Jam Workshop" },
-    desc: { zh: "参与短期的协作策划与原型开发。", jp: "短期間でのコラボ企画・プロトタイプ開発に参加。", en: "Participated in rapid collaborative planning and prototyping." }
+    desc: { zh: "参与短期的协作策划 with 原型开发。", jp: "短期間でのコラボ企画・プロトタイプ開発に参加。", en: "Participated in rapid collaborative planning and prototyping." }
   },
   {
     year: "2023.12",
@@ -89,7 +92,7 @@ const activities = [
   {
     year: "2023.05",
     title: { zh: "CADA 日本概念艺术设计奖", jp: "CADA 日本コンセプトアートデザイン賞", en: "CADA Japan Concept Art Design Award" },
-    desc: { zh: "项目：森林棋墙与森林乐队。荣获铜奖。针对中国“隔代育儿”现象的自然教育空间提案。", jp: "プロジェクト：森のチェスウォールと森のおんがくか。銅賞を受賞。中国における「隔代教育」の課題を解決する空間デザイン。", en: "Project: Forest Chess Wall & Band. Awarded Bronze Prize. A spatial design intervention for 'intergenerational parenting' in China." }
+    desc: { zh: "项目：森林棋墙与森林乐队。荣获铜奖。针对中国“隔代育儿”现象 of 自然教育空间提案。", jp: "プロジェクト：森のチェスウォールと森のおんがくか。銅賞を受賞。中国における「隔代教育」の心理的課題を解決する空間デザイン。", en: "Project: Forest Chess Wall & Band. Awarded Bronze Prize. A spatial design intervention for 'intergenerational parenting' in China." }
   }
 ];
 
@@ -107,7 +110,7 @@ const projectData = [
         { t: "概要", d: "这是一款旨在通过提供不同“脚步声”作为听觉提示，改善帕金森患者步行康复训练体验、缓解冻结步态的移动端应用。" },
         { t: "功能特点", d: "核心机制：将“脚步声”作为听觉线索（代替纯音乐或节拍器），利用其天然的空间信息降低认知负担，防止冻结步态。\n任务与激励系统：设有个人任务（赚取金币解锁新脚步声）和协作任务（添加好友组队换取特殊声音），增强康复动机与社交联系。\nJourney Set（旅程列表）：用户可自定义脚步声播放列表，模拟前往某地的沿途情景，让枯燥的康复室训练变成丰富的“旅程”体验。\n适老化适医化设计：医生端可介入填写数据并设定安全步速限制；步速控制条摒弃了BPM，改为老人易懂的“步/分钟”，并带有吸附点方便滑动操作。" },
         { t: "制作过程", d: "课题发展：起源于解决帕金森患者步行问题的课程。通过医院见学发现，现有康复训练枯燥、缺乏交流，且患者易发冻结步态跌倒。\n难题与解决：最初想做视听结合的游戏化方案，但文献调研指出多模态提示会增加认知负荷导致跌倒。最终通过“单纯脚步声”解决该问题。在UI设计上，为避免老人将“切换脚步声”误认为“快进”，参考短视频逻辑，去除传统的播放/切歌按键，改为“左右滑动切换、点击画面暂停/播放”；并将功能Icon替换为直观的文字。" },
-        { t: "成果", d: "使用Figma制作了极高保真度的原型，利用Variant property、Boolean property和Auto layout等高级功能，详细设定了注册、弹窗、模式切换等交互跳转，保持了工程文件的整洁与规范。以下为交互原型预览与成果展示：" }
+        { t: "成果", d: "使用Figma制作了极高保真度的原型，利用Variant property、Boolean property and Auto layout等高级功能，详细设定了注册、弹窗、模式切换等交互跳转，保持了工程文件的整洁与规范。以下为成果演示与原型：" }
       ],
       jp: [
         { t: "概要", d: "様々な「足音」を聴覚提示として提供することで、パーキンソン病患者の歩行訓練体験を改善し、すくみ足を緩和することを目指したモバイルアプリ。" },
@@ -118,7 +121,7 @@ const projectData = [
       en: [
         { t: "Overview", d: "A mobile application providing footstep sounds as auditory cues to improve gait rehabilitation and alleviate 'Freeze of Gait' for Parkinson's patients." },
         { t: "Features", d: "Uses footsteps instead of music to reduce cognitive load; mission systems for motivation; travel playlists. Senior-friendly design with simplified units." },
-        { t: "Process", d: "Developed from clinical visits identifying fall risks. Research steered design toward simple footsteps. UI logic inspired by short-video apps to ensure intuitive elderly operation." },
+        { t: "Process", d: "Developed from clinical visits identifying fall risks. Research steered design toward simple footsteps to ensure intuitive elderly operation." },
         { t: "Results", d: "High-fidelity Figma prototype utilizing advanced features. Mapped comprehensive flows." }
       ]
     },
@@ -143,13 +146,13 @@ const projectData = [
       jp: [
         { t: "概要", d: "不快なノイズと身体動作の関係を探求する、視聴覚インタラクティブWebインスタレーションゲーム。" },
         { t: "特徴", d: "カメラで動作を検知。静止すると「蚊」の文字が画面を埋め尽くしASMRが激化、動くと消散する演出を通じ、心理的距離感を可視化。" },
-        { t: "プロセス", d: "当初はTouchDesignerを検討したが、Geminiを活用した「Vibe Coding」へ転換。ASMR音源を統合し、概念実証とプロトタイプ構築を実現。" },
+        { t: "プロセス", d: "当初はTouchDesignerを検討したが、Geminiを活用した「Vibe Coding」へ转换。ASMR音源を統合し、概念実証とプロトタイプ構築を実現。" },
         { t: "成果", d: "ブラウザで動作するプロトタイプを開発し実地展示。以下はデモビデオです：" }
       ],
       en: [
         { t: "Overview", d: "An interactive web installation exploring the relationship between noise and movement." },
-        { t: "Features", d: "Motion detection triggers Intensifying ASMR and swarm visuals when still, which dissipate upon movement to visualize psychological distance." },
-        { t: "Process", d: "Pivoted from TD to Vibe Coding with Gemini. Rapidly prototyped web code and integrated ASMR audio for high-speed concept validation." },
+        { t: "Features", d: "Motion detection triggers swarms and Intensifying ASMR when still, which dissipate upon movement to visualize psychological distance." },
+        { t: "Process", d: "Pivoted from TD to Vibe Coding with Gemini. Rapidly generated web code and integrated ASMR audio." },
         { t: "Results", d: "Fully functional web interactive prototype showcased in classroom environments. Watch the demo below:" }
       ]
     },
@@ -171,13 +174,13 @@ const projectData = [
       jp: [
         { t: "概要", d: "初心者や一般向けの未来型スマートバードウォッチング車両。敷居を下げ、自然保護意識の喚起を目的としたデザイン。" },
         { t: "特徴", d: "低速走行による歩行疲労軽減、リアルタイム識別・観察指導。進化と絶滅の物語を伝える「家系図式図鑑」を内蔵。" },
-        { t: "プロセス", d: "课题と分担：モビリティデザインの授業における「サブカルチャー」をテーマとしたグループプロジェクト。他メンバーが車体とHMIを、私が渲染、3Dアニメ、リギングを担当。ターゲット転換：調査の結果、ターゲットを「一般層/初心者」へ転換。移動手段から「体験空間」へと再定義した。技术：分布式渲染手法により膨大な処理時間を克服。" },
-        { t: "成果", d: "3D渲染、HUD、App UI、プロモーションビデオを構築。2025年にはHUDデザインのブラッシュアップを実施。" }
+        { t: "プロセス", d: "课题と分担：「サブカルチャー」をテーマとしたグループプロジェクト。他メンバーが車体とHMIを、私が渲染、3Dアニメ、リギングを担当。ターゲット転換：調査の結果、ターゲットを「一般層/初心者」へ転換。移動手段から「体験空間」へと再定義した。技术：分散レンダリング手法により膨大な処理時間を克服。" },
+        { t: "成果", d: "3Dレンダリング、HUD、App UI、プロモーションビデオを構築。2025年にはHUDデザインのブラッシュアップを実施。" }
       ],
       en: [
         { t: "Overview", d: "A smart birdwatching vehicle for urban parks, designed to lower the barrier for beginners and raise environmental awareness." },
-        { t: "Features", d: "Low-speed cruising; HUD and smart telescope for identification; evolutionary narratives." },
-        { t: "Process", d: "Topic: Group project themed on 'Subculture'. Teammates handled body modeling while I managed rendering, 3D animation, and rigging. Target: Pivoted to 'Beginners', shifting to an 'integrated experience space'. Challenges: Overcame massive rendering times by distributed computing." },
+        { t: "Features", d: "Low-speed cruising; HUD and smart telescope for real-time identification and observation guidance; evolutionary narratives." },
+        { t: "Process", d: "Topic: Group project themed on 'Subculture'. Teammates handled body modeling while I managed rendering, 3D animation, and rigging. Target: Pivoted to 'Beginners', shifting positioning to an 'integrated experience space'. Challenges: Overcame rendering times by distributed processing." },
         { t: "Results", d: "Comprehensive ecosystem including 3D renders, HUD, and App UI. Refined the HUD design in 2025." }
       ]
     },
@@ -195,14 +198,14 @@ const projectData = [
       zh: [
         { t: "概要", d: "一个聚焦于乡村未成年人溺水问题的多方联动自动救援系统与水域安全监控平台。" },
         { t: "功能特点", d: "包含水域监控预警平台、微信企业号村民端Bot以及硬件“分体式智能救生圈”。系统能在青少年下水前发出语音驱赶，若发生落水则自动出动救生圈并通知附近村民，溺水确认后才呼叫医疗资源，避免公共资源浪费。" },
-        { t: "制作过程", d: "课题发展与分工：与电信学院跨学科合作的产学研项目。电信学院要求必须使用机器学习与图像训练；设计学院要求课题必须与“主动健康”相关。\n难题与解决：工程师团队提议缺乏设计创新度。我作为桥梁，从“本能溺水反应”调研切入，提出了“事前干预与自动介入”全新用户流程。建议采用“分体式”救生圈设计，并提出需要“考虑水流的动态路径优化算法”，完美契合了电信学院对算法创新的诉求。" },
+        { t: "制作过程", d: "课题发展与分工：与电信学院跨学科合作的产学研项目。电信学院要求必须使用机器学习与图像训练；而设计学院要求课题必须与“主动健康（Active Health）”相关。\n难题与解决：工程师团队提议缺乏设计创新度。我作为桥梁，从“本能溺水反应”调研切入，提出了“事前干预与自动介入”全新用户流程。建议采用“分体式”救生圈设计，完美契合了电信学院对算法创新的诉求。" },
         { t: "成果", d: "成功融合了技术可行性与体验创新，最终不仅产出了系统架构与UI界面，还制作了能在水里追踪位置的实体机电原型设备，并荣获了 DiD Award（东莞杯）三等奖。" }
       ],
       jp: [
         { t: "概要", d: "農村部における未成年の溺水問題に焦点を当てた、多機関連携の自動救援システムと水域監視プラットフォーム。" },
         { t: "特徴", d: "監視プラットフォーム、村民用通知Bot、分体式スマート救命浮輪で構成。音声警告、落水時の自動出動を実現。" },
-        { t: "プロセス", d: "学際的プロジェクト。本能的溺水反応の研究に基づき「事前介入」フローを提案。分体式デザインと経路最適化アルゴリズムを導入。" },
-        { t: "成果", d: "UIに加え、水中で位置追跡可能な实物メカトロニクス・プロトタイプを制作。DiD Award 三等賞を受賞。" }
+        { t: "プロセス", d: "電気通信学院との連携プロジェクト。本能的溺水反応の研究に基づき「事前介入」フローを提案。分体式デザインと経路最適化アルゴリズムを導入し、技術を体験価値へ変換した。" },
+        { t: "成果", d: "UIに加え、水中で位置追跡可能な実物メカトロニクス・プロトタイプを制作。DiD Award 三等賞を受賞。" }
       ],
       en: [
         { t: "Overview", d: "A collaborative rescue system and safety monitoring platform focused on rural child drowning prevention." },
@@ -223,14 +226,14 @@ const projectData = [
     details: {
       zh: [
         { t: "概要", d: "一项旨在缓解中国“隔代育儿”中老年人压抑心理，通过自然教育手段帮助老幼建立平等关系的服务与空间设计。" },
-        { t: "功能特点", d: "包含实体设施“森林棋墙”（翻转方块认识动植物）和“梅花桩森林乐队”（互动装置），配套有智能导览App。通过互动让儿童获得教育，同时利用“回想疗法”唤起老年人的回忆。" },
+        { t: "功能特点", d: "包含实体设施“森林棋墙”（翻转方块认识动植物）和“梅花桩森林乐队”（互动装置），配套有智能导览App。通过自然互动让儿童获得教育，同时利用“回想疗法”唤起老年人的回忆。" },
         { t: "制作过程", d: "通过调研发现高知老年人在带孙辈时缺乏主体感，且老幼之间缺乏体力匹配的共同爱好。为解决这一痛点，提取了“自然活动”这一交集，让老幼在游玩中找回对等的关系。" },
-        { t: "成果", d: "产出了空间装置的3D渲染图以及配套手机App的高保真UI，实现了“物理设施+数字应用”的服务设计提案，并于2023年荣获了 CADA 日本コンセプトアートデザイン賞（概念艺术设计奖）铜赏。以下为交互原型预览：" }
+        { t: "成果", d: "产出了空间装置的3D渲染图以及配套手机App的高保真UI，实现了“物理设施+数字应用”的服务设计提案，并于2023年荣获了 CADA 日本コンセプトアートデザイン賞（概念艺术设计奖）铜奖。以下为交互原型预览：" }
       ],
       jp: [
-        { t: "概要", d: "中国における「隔代教育」に伴う抑うつ感を緩和し、自然教育を通じて老若が対等な関係を築けるようにするサービス・空間デザイン。" },
-        { t: "特徴", d: "知育壁「森のチェスウォール」と踏板、Appで構成。自然教育を通じた子供の教育と、回想療法による高齢者の記憶刺激を両立。" },
-        { t: "プロセス", d: "高学歴の高齢者が孫育てにおいて主体性を失っている実態を調査で発見。共通の趣味が見出しにくい点に対し、「自然活動」を接点として遊びの中で对等な関係を再構築するソリューションを提案した。" },
+        { t: "概要", d: "中国における「隔代教育（祖父母による孫育て）」に伴う抑うつ感を緩和し、自然教育を通じて老若が対等な関係を築けるようにするサービス・空間デザイン。" },
+        { t: "特徴", d: "知育壁「森林棋墙」と踏板、Appで構成。自然教育を通じた子供の教育 and 回想療法による高齢者の記憶刺激を両立。" },
+        { t: "プロセス", d: "高学歴の高齢者が孫育てにおいて主体性を失っている実態を調査で発見。共通の趣味が見出しにくい点に対し、「自然活動」を接点として遊びの中で対等な関係を再構築するソリューションを提案した。" },
         { t: "成果", d: "空間レンダリングとApp UIを制作。2023年 CADA 日本コンセプトアートデザイン賞 銅賞を受賞。以下はプロトタイプです：" }
       ],
       en: [
@@ -241,7 +244,7 @@ const projectData = [
       ]
     },
     github: "#", 
-    figma: "https://www.figma.com/proto/iz4MFtdqt7ilpepOvtaMvF/pocket-forest?page-id=1370%3A1357&node-id=1370-1359&p=f&viewport=530%2C392%2C0.1&t=OgNUfrjlElXbHe8y-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1370%3A1359&page-id=1370%3A1359" 
+    figma: "https://www.figma.com/proto/iz4MFtdqt7ilpepOvtaMvF/pocket-forest?page-id=1370%3A1357&node-id=1370-1359&p=f&viewport=530%2C392%2C0.1&t=OgNUfrjlElXbHe8y-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1370%3A1359&page-id=1370%3A1357" 
   },
   { 
     id: 6, 
@@ -254,7 +257,7 @@ const projectData = [
       zh: [
         { t: "概要", d: "依托九州大学DAC-U（二氧化碳直接回收）技术，将收集的CO2转化为宠物食品的未来型订阅制服务。" },
         { t: "功能特点", d: "用户将专用的CO2回收滤芯安装在宠物牵引绳上，在日常遛狗中回收CO2。滤芯交还至街头的“Kaavo Station”后，用户可获得积分折扣。App内设有宠物排行榜，激励用户持续参与。" },
-        { t: "制作过程", d: "背景为探索DAC-U技术的社会化应用。难点在于合成淀粉的伦理性与接受度。我提出将其应用于“宠物食品”以规避心理与法律风险。团队协作构思了硬件、订阅模式和排行榜机制。" },
+        { t: "制作过程", d: "背景为探索DAC-U技术的社会化应用。难点在于合成淀粉的伦理性与接受度。我提出将其应用于“宠物食品”以规避心理与法律风险。团队协作构思了硬件、订阅模式 and 排行榜机制。" },
         { t: "成果", d: "完成了从概念提案、硬件3D渲染、蓝图到App UI的全面设计。荣获 SDGs Design International Awards 入围奖（入选）。以下为演示视频：" }
       ],
       jp: [
@@ -282,7 +285,7 @@ const projectData = [
       zh: [
         { t: "概要", d: "「文化官」工作坊是一个通过有意义的勤工俭学体验，在为学生提供理解当地文化和社会机会的同时，促进人与人之间连接的活动展示。" },
         { t: "制作背景", d: "近年来，受少子老龄化影响，日本社会面临劳动力不足的严峻挑战，外国人居住者也随之增加。为了防止将来社会出现按民族或国籍分断、孤立的结构，探索外国人与当地社会的相互理解与融合显得至关重要。" },
-        { t: "调研与痛点", d: "访谈发现，许多留学生为了理解日本文化、提高语学力并建立社交而开始兼职，但实际多从事极其忙碌、缺乏交流机会且体力负担沉重的饮食业，难以转化为文化成长。经济宽裕的留学生常因感受不到此类兼职的魅力而轻易辞职。" },
+        { t: "调研与痛点", d: "访谈发现，许多留学生为了理解日本文化、提高语学力并建立社交而开始兼职，但实际多从事极其忙碌、缺乏交流机会且体力负担沉重的饮食业，难以转化为文化成长。经济宽世的留学生常因感受不到此类兼职的魅力而轻易职。" },
         { t: "设计方案", d: "构思了“文化官”勤工俭学模式，让留学生在更具文化文脉的场所（如文化设施等）工作。同时允许一定数量的日本学生参加，将其打造为跨文化交流的场域，在增加地域文化关切的同时，建立有深度的社会连接。" },
         { t: "成果", d: "产出了系统服务蓝图及各利益相关方的连接关系图。以下为工作坊流程与服务体系展示：" }
       ],
@@ -290,7 +293,7 @@ const projectData = [
         { t: "概要", d: "「文化官」ワークショップは、地域の文化や社会を理解する機会を学生に提供しながら、アルバイトを通じて人と人とのつながりを促進することを目的とした活動です。" },
         { t: "制作背景", d: "近年、日本社会は少子高齢化の影響により労働力不足に直面しており、それに伴い外国人居住者の増加傾向も見られます。将来的に人々が民族や国籍ごとに分断され孤立して暮らすような社会構造にならないためには、外国人と地域社会の相互理解と融合が重要だと考えました。" },
         { t: "調査と課題", d: "留学生へのインタビューの結果、多くの学生が日本文化への理解や日本人との交流、適応を目的にアルバイトを始めますが、実際には多忙な飲食業などが多く、文化的・言語的な成長にはつながりにくいという課題を発見しました。経済的に余裕のある留学生は、そのような環境に魅力を感じられず辞めてしまうケースも少なくありません。" },
-        { t: "コンセプト", d: "留学生が地域文化への理解を深め、社会的な接点を持てるような、より意味のあるアルバイト体験を提供するサービスとして構想しました。また、この活動には日本人学生も一定数参加できるようにし、交流の場としての役割も担います。" },
+        { t: "コンセプト", d: "留学生が地域文化への理解を深め、社会的な接点を持てるような、より意味のあるアルバイト体験を提供するサービスとして構想しました。また、この活動には日本人学生も一定数参加できるようにし、交流 of 場としての役割も担います。" },
         { t: "成果", d: "サービスシステム図およびステークホルダーマップを制作。以下はワークショップのフローと体系図です：" }
       ],
       en: [
@@ -323,7 +326,10 @@ const getHobbiesList = (l) => l === 'zh' ? [
 ]);
 
 const GithubIcon = ({ size = 20, className = "" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
 );
 
 const App = () => {
@@ -377,10 +383,10 @@ const App = () => {
   const stopScrolling = () => { if (scrollInterval.current) { clearInterval(scrollInterval.current); scrollInterval.current = null; } };
 
   const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
+    const slideRect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - slideRect.left;
     if (x < 150) startScrolling(-1);
-    else if (x > rect.width - 150) startScrolling(1);
+    else if (x > slideRect.width - 150) startScrolling(1);
     else stopScrolling();
   };
 
@@ -391,11 +397,13 @@ const App = () => {
   const t = {
     zh: {
       name: "陈 霏雪", nameEn: "CHEN FEIXUE", nameKana: "チェン　フェイシュエ", role: "设计师 / UX与战略研究员",
-      intro: "以好奇心为原动力洞察结构，并将其重构为体验。追求实现可能性的诚实与多维度表达，心怀对社会的责任与作为设计师的喜悦，去实现有价值的体验。",
+      introMain: "解构复杂课题，重构为「动人心弦的体验」。",
+      introSub: "以好奇心为引擎，从研究到落地一气呵成的共创型设计师。",
+      introLead: "以工科跨界设计的探索为原点，在接地气的现场调研中将看不见的痛点结构化并予以洞察。将AI与3D技术化作“压倒性的落地执行力”，最快速度将创意翻译为可触可感的原型。让技术与人的情感和谐共鸣，持续为社会输出正向改变日常的UI/UX。",
       nav: ["个人简介", "经历", "项目作品", "作品集", "修士研究", "个人兴趣"],
       eduTitle: "经历", actTitle: "学外活动・实习・获奖记录",
       projectTitle: "项目作品", otherWorksTitle: "其它", showcaseTitle: "作品集文件", researchTitle: "修士研究", hobbiesTitle: "个人兴趣", methodsTitle: "STEPS",
-      researchSubject: "基于烹饪疗法及回想疗法的面向高龄者的回忆食谱生成方法研究",
+      researchSubject: "基于烹饪疗法及回想疗法的面向高龄者回忆食谱生成方法研究",
       researchSummary: "该研究利用融合了回想疗法与烹饪疗法的对话型AI，从高龄者的“饮食记忆”中生成回忆食谱。",
       steps: [
         { t: "文献调查 (已完成)", d: "确认回想与烹饪疗法结合的有效性，确立以支持高龄者居家独立生活为目标的研发方向。" },
@@ -419,7 +427,9 @@ const App = () => {
     },
     jp: {
       name: "陳 霏雪", nameEn: "CHEN FEIXUE", nameKana: "チェン　フェイシュエ", role: "デザイナー / UXとストラテジック研究者",
-      intro: "好奇心を原動力に構造を捉え、体验作为再構築する。実現可能性への诚実さと多角的な表现を追求し、社会への责任和设计师としての喜びを胸に、価値ある体験を実装します。",
+      introMain: "複雑な課題を解き明かし、「心動かす体験」へ再構築する。",
+      introSub: "好奇心をエンジンに、リサーチから実装まで一気通貫で伴走する、共創型デザイナー。",
+      introLead: "工学からデザインへの越境を原点に、現場の泥臭いリサーチで見えない不満を構造化し、捉えます。AIや3Dを活用した「圧倒的な実装力」を武器に、アイデアを最速で触れるプロトタイプへと翻訳。テクノロジーと人間の感情を調和させ、人々の日常を前向きに変えるUI/UXを社会に実装し続けます。",
       nav: ["プロフィール", "経歴", "プロジェクト", "ポートフォリオ", "修士研究", "趣味"],
       eduTitle: "経歴", actTitle: "学外活動・インターン・受賞実績",
       projectTitle: "プロジェクト", otherWorksTitle: "その他", showcaseTitle: "ポートフォリオファイル", researchTitle: "修士研究", hobbiesTitle: "個人趣味", methodsTitle: "STEPS",
@@ -427,11 +437,11 @@ const App = () => {
       researchSummary: "回想療法と料理療法を融合した对话型AIを用いて、高齢者の『食の記憶』から思い出のレシピを生成し支援する研究です。",
       steps: [
         { t: "文献調査とテーマ確立 (完了)", d: "回想法と料理療法の有効性を確認。高齢者の在宅自立を支援する研究方向を確定。" },
-        { t: "質的調査とDP策定 (完了)", d: "季節性の重要性を解明し、歴史的文脈の導入や食卓風景再現などDPを策定。" },
+        { t: "質的調査とDP策定 (完了)", d: "季節性の重要性を解明し、DPを策定。" },
         { t: "プロトタイプ1开发 (反復中)", d: "3段階の对话ロジックを実装。食材だけでなく周辺要素への質問を統合。" },
-        { t: "第2回調査と认知モデル (计划中)", d: "自宅で未知の料理を用いた测试を実施。认知マップと痛点を可视化。" },
-        { t: "統合プロトタイプの構築 (计划中)", d: "大画面化と操作の原子化をUIに反映し、専門家によるヒューリスティック評価を実施。" },
-        { t: "最終ユーザーテスト (计划中)", d: "実際の动线で验证。料理意欲向上を实证。" }
+        { t: "第2回調査と认知モデル (计划中)", d: "自宅で未知の料理を用いた测试を実施。認知マップと痛点を可視化。" },
+        { t: "統合プロトタイプの構築 (計画中)", d: "大画面化と操作 of 原子化をUIに反映し、専門家によるヒューリスティック評価を実施。" },
+        { t: "最終ユーザーテスト (計画中)", d: "実際の動線で検証。料理意欲向上を実証。" }
       ],
       theories: [
         { t: "回想療法", d: "過去の経験や記憶を呼び起こすことで、認知機能の維持や幸福感を高める心理療法。" },
@@ -447,7 +457,9 @@ const App = () => {
     },
     en: {
       name: "Chen Feixue", nameEn: "CHEN FEIXUE", nameKana: "CHEN FEIXUE", role: "Designer / UX & Strategic Researcher",
-      intro: "Driven by curiosity, I decode structures into experiences. I strive for integrity in feasibility and multifaceted expression, with a sense of social responsibility.",
+      introMain: "Decoding Complex Challenges, Reconstructing them into 'Emotion-Driven Experiences.'",
+      introSub: "Powered by curiosity, a co-creative designer accompanying projects from research to implementation.",
+      introLead: "Rooted in the journey of crossing boundaries from engineering to design, I structure and capture unseen frustrations through muddy, hands-on field research. Weaponizing an 'overwhelming power of execution' via AI and 3D modeling, I rapidly translate abstract ideas into tangible prototypes. By harmonizing technology and human emotion, I continuously implement UI/UX that reshapes daily lives in a positive way.",
       nav: ["Profile", "Experience", "Projects", "Portfolio", "Research", "Hobbies"],
       eduTitle: "Experience History", actTitle: "Extracurricular, Internship & Awards",
       projectTitle: "Projects", otherWorksTitle: "Other", showcaseTitle: "Portfolio File", researchTitle: "Master's Research", hobbiesTitle: "Interests", methodsTitle: "STEPS",
@@ -458,12 +470,12 @@ const App = () => {
         { t: "Interview (Done)", d: "Identified festive context insights." },
         { t: "Prototype (Iterating)", d: "Developed 3-stage dialogue logic." },
         { t: "Modeling (Planned)", d: "Mapped cognitive models in kitchen." },
-        { t: "Integration & Expert Review (Planned)", d: "Applied UI atomization and conducted evaluations." },
+        { t: "Integration & Heuristic Review (Planned)", d: "Applied UI atomization and conducted evaluations." },
         { t: "Final Validation (Planned)", d: "Verified results in real kitchen flows." }
       ],
       theories: [
         { t: "Reminiscence", d: "Boosting cognitive function." },
-        { t: "Culinary", d: "Physical and social rehab." }
+        { t: "Culinary", d: "Using meal preparation for rehab." }
       ],
       points: [
         { label: "Mission", val: "Aging-in-Place" },
@@ -513,8 +525,10 @@ const App = () => {
         <div className="absolute right-0 top-[240px] md:top-1/2 -translate-y-1/2 select-none pointer-events-none z-0">
           <span className="text-[25vw] md:text-[18vw] font-black text-stone-200/20 tracking-tighter uppercase whitespace-nowrap">PORTFOLIO</span>
         </div>
-        <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-24 relative z-10">
-          <div className="md:w-5/12">
+        {/* 3:7 Layout for Personal Info & Concept */}
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-10 gap-12 md:gap-24 relative z-10 items-end">
+          {/* 左侧基本介绍：占 3/10 宽度 */}
+          <div className="md:col-span-3 flex-shrink-0">
             <div className={`inline-block px-4 py-1.5 mb-10 ${theme.primaryBg} text-slate-800 rounded-sm text-[9px] md:text-[10px] font-black tracking-[0.2em] uppercase whitespace-nowrap overflow-visible`}>Experience & Design Strategy</div>
             <div className="mb-10">
               <h1 className="text-5xl md:text-6xl font-black mb-2 tracking-tighter text-slate-900 leading-none whitespace-nowrap">{t[lang].name}</h1>
@@ -525,10 +539,24 @@ const App = () => {
                 </>
               )}
             </div>
-            <p className={`role-label whitespace-nowrap ${theme.textMuted} font-bold ${lang === 'en' ? 'tracking-wider' : 'tracking-[0.2em]'} uppercase`}>{t[lang].role}</p>
           </div>
-          <div className="md:w-6/12 mt-4 md:mt-0">
-            <p className="text-[11px] md:text-[14px] lg:text-[15px] text-slate-700 font-light tracking-[0.05em] leading-[2.2] md:leading-[2.2] whitespace-pre-line border-l border-stone-200 pl-8 md:pl-12">{t[lang].intro}</p>
+          
+          {/* 右侧个人理念：占 7/10 宽度 且左侧有长蓝色边栏进行对齐 */}
+          <div className="md:col-span-7 flex flex-col items-start text-left border-l-2 border-[#9FD9F6] pl-6 md:pl-10">
+            {/* 大标题：蓝色 */}
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-[#5BB2DF] leading-snug tracking-tight">
+              {t[lang].introMain}
+            </h2>
+            {/* 副标题：黑色 */}
+            <h3 className="text-sm md:text-base lg:text-lg font-bold text-slate-900 tracking-wide mt-4 uppercase">
+              {t[lang].introSub}
+            </h3>
+            {/* 引言部分：去除 \n 强制换行并紧密排列 */}
+            <div className="mt-8">
+              <p className="text-[13px] md:text-sm lg:text-base text-slate-500 font-light leading-relaxed tracking-normal whitespace-normal">
+                {t[lang].introLead}
+              </p>
+            </div>
           </div>
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-30 z-20">
@@ -550,7 +578,7 @@ const App = () => {
                 <div className="md:w-1/4 text-stone-300 font-mono text-sm pt-2 mb-4 md:mb-0 tracking-[0.2em] font-bold">{item.year}</div>
                 <div className={`md:w-3/4 border-l-4 border-stone-50 pl-12 pb-4 transition-all group-hover:border-[#9FD9F6]`}>
                   <h3 className="text-xl md:text-3xl font-black mb-4 group-hover:text-slate-900 transition-colors leading-tight">{item.title[lang]}</h3>
-                  <p className="text-slate-500 text-lg leading-relaxed font-light">{item.desc[lang]}</p>
+                  <p className="text-slate-500 text-[10px] md:text-base leading-relaxed font-light">{item.desc[lang]}</p>
                 </div>
               </div>
             ))}
@@ -565,8 +593,8 @@ const App = () => {
                   <div key={i} className="relative group">
                     <div className="absolute -left-12 top-2 w-4 h-4 rounded-full bg-[#9FD9F6] opacity-30 group-hover:opacity-100 transition-opacity" />
                     <div className="text-[10px] font-bold text-stone-400 mb-2 tracking-widest">{item.year}</div>
-                    <h4 className="font-black text-xl mb-3 text-slate-800 leading-tight">{item.title[lang]}</h4>
-                    <p className="text-slate-500 text-sm font-light leading-loose">{item.desc[lang]}</p>
+                    <h4 className="font-black text-lg md:text-xl mb-3 text-slate-800 leading-tight">{item.title[lang]}</h4>
+                    <p className="text-slate-500 text-[10px] md:text-sm font-light leading-loose">{item.desc[lang]}</p>
                   </div>
                 ))}
               </div>
@@ -614,7 +642,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center space-x-6 mb-20"><Target className={theme.primaryText} size={40} /><h2 className="text-4xl font-black tracking-tighter uppercase">{t[lang].showcaseTitle}</h2></div>
           <div className="relative aspect-video w-full rounded-sm overflow-hidden shadow-2xl border border-stone-200">
-            <iframe style={{ border: "none", width: "100%", height: "100%" }} src="https://embed.figma.com/proto/rvu2cxmbU4f7lg8rewR6s1/PF-for-website?node-id=1-2529&p=f&viewport=252%2C-746%2C0.11&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&embed-host=share" allowFullScreen></iframe>
+            <iframe style={{ border: "none", width: "100%", height: "100%" }} src="https://embed.figma.com/proto/rvu2cxmbU4f7lg8rewR6s1/PF-for-website?node-id=1-2529&p=f&viewport=252%2C-746%2C0.11&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&embed-host=share" allowFullScreen title="Showcase"></iframe>
           </div>
         </div>
       </section>
@@ -644,7 +672,7 @@ const App = () => {
                         <a href="https://gemini.google.com/share/6c123f0d0e8f" target="_blank" rel="noopener noreferrer" className="block">
                           <div className="flex items-center gap-4 mb-2">
                             <span className="text-[#9FD9F6] font-mono font-black text-xs uppercase tracking-widest whitespace-nowrap">Stage 0{i+1}</span>
-                            <div className="font-black text-white text-sm md:text-base uppercase tracking-wider flex items-center gap-2">{step.t} <ExternalLink size={14} className="text-[#F59E0B]" /></div>
+                            <div className="font-black text-white text-base uppercase tracking-wider flex items-center gap-2">{step.t} <ExternalLink size={14} className="text-[#F59E0B]" /></div>
                           </div>
                           <div className="text-slate-400 font-light leading-relaxed max-w-2xl">{step.d}</div>
                           <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80 hover:opacity-100 transition-opacity"><img src="recipe.png" alt="" className="w-full h-auto" /></div>
@@ -676,9 +704,7 @@ const App = () => {
               <div className="space-y-4">
                 {t[lang].points && t[lang].points.map((item, i) => (
                   <div key={i} className="bg-[#9FD9F6]/5 border border-[#9FD9F6]/10 p-8 rounded-sm hover:bg-[#9FD9F6]/10 transition-all group shadow-xl">
-                    <div className="text-[#F59E0B] mb-4 group-hover:scale-110 transition-transform origin-left">
-                       {i === 0 ? <Target size={24}/> : i === 1 ? <Sparkles size={24}/> : <Users size={24}/>}
-                    </div>
+                    <div className="text-[#F59E0B] mb-4 group-hover:scale-110 transition-transform origin-left">{item.icon}</div>
                     <div className="text-[10px] uppercase font-black text-[#9FD9F6] tracking-[0.3em] mb-2">{item.label}</div>
                     <div className="text-xl font-black text-white leading-tight tracking-tighter">{item.val}</div>
                   </div>
@@ -690,8 +716,20 @@ const App = () => {
       </section>
 
       {/* Interests */}
-      <section id="hobbies" className="py-32 px-8 bg-white border-t border-stone-100">
-        <div className="max-w-5xl mx-auto px-8"><div className="flex items-center space-x-6 mb-20"><Heart className={theme.accent} size={40} /><h2 className="text-4xl font-black tracking-tighter uppercase">{t[lang].hobbiesTitle}</h2></div><div className="grid grid-cols-1 md:grid-cols-3 gap-12">{getHobbiesList(lang).map((hobby, i) => (<div key={i} className="p-12 bg-stone-50 border border-transparent hover:border-[#9FD9F6] transition-all group rounded-sm shadow-sm hover:shadow-2xl"><div className={`w-16 h-16 bg-white text-slate-400 rounded-sm flex items-center justify-center mb-10 group-hover:bg-[#9FD9F6] group-hover:text-white transition-all shadow-sm`}>{i === 0 ? <Palette size={32} /> : i === 1 ? <Camera size={32} /> : <Languages size={32} />}</div><h3 className="text-2xl font-black mb-4 text-slate-900 tracking-tight">{hobby.name}</h3><p className="text-slate-500 text-base leading-[2] font-light italic">{hobby.desc}</p></div>))}</div></div>
+      <section id="hobbies" className="py-32 px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center space-x-6 mb-20"><Heart className={theme.accent} size={40} />
+            <h2 className="text-4xl font-black tracking-tighter uppercase">{t[lang].hobbiesTitle}</h2></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {getHobbiesList(lang).map((hobby, i) => (
+              <div key={i} className="p-12 bg-stone-50 border border-transparent hover:border-[#9FD9F6] transition-all group rounded-sm shadow-sm hover:shadow-2xl">
+                <div className={`w-16 h-16 bg-white text-slate-400 rounded-sm flex items-center justify-center mb-10 group-hover:bg-[#9FD9F6] group-hover:text-white transition-all shadow-sm`}>{i === 0 ? <Palette size={32} /> : i === 1 ? <Camera size={32} /> : <Languages size={32} />}</div>
+                <h3 className="text-2xl font-black mb-4 text-slate-900 tracking-tight">{hobby.name}</h3>
+                <p className="text-slate-500 text-base leading-[2] font-light italic">{hobby.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
