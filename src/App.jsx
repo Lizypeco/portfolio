@@ -24,14 +24,14 @@ import {
 
 /**
  * 最终视觉精调、理念重构与内容全量录入版：
- * 1. 理念重构：将个人理念升级为 Main Copy（大标题 - 蓝色）、Sub Copy（副标题 - 黑色）及 Lead Text（引言 - 无换行）结构，并适配中、日、英三语。
- * 2. 布局优化：删除职业标签。使用网格布局实现左侧个人基本介绍占 3/10 宽度 (col-span-3)。
- * 右侧个人理念占 7/10 宽度 (col-span-7)，并将左侧蓝色竖线（border-l-2）移至右侧整体容器，加长并与所有理念内容完美对齐。
- * 3. 导航栏：文字 whitespace-nowrap 不换行处理。
- * 4. 获奖与经历：SDGs (2024.12), DiD (2023.12), CADA (2023.05) 按时间从新到旧精确排序。
- * 5. SoundShoes：100% 还原详尽说明。功能特点板块展示 17/19 并列与 20/22 并列；制作过程展示 asisjm 与 function tree 并列。后缀统一为 .png。
- * 6. 森林棋墙：项目 5 名称改为“森林棋墙与森林乐队 / 森のチェスウォールと森のおんがくか”，更新 Figma 嵌入。
- * 7. 弹窗布局：封面图置顶完整显示（不裁剪），随页面滚动，标签右上角。
+ * 1. 修正了日语翻译中的错别字：(计划中)->(計画中)、开发->開発、认知->認知等。
+ * 2. 理念重构：Main Copy（蓝色）、Sub Copy（黑色）、Lead Text（无换行）。
+ * 3. 边栏优化：蓝色竖线（border-l-2）移至右侧整体容器，加长并与所有理念内容完美对齐。
+ * 4. 布局比例：左侧个人介绍占 3/10 宽度 (col-span-3)，右侧占 7/10 宽度 (col-span-7)。
+ * 5. 导航栏：文字 whitespace-nowrap 确保绝对不换行。
+ * 6. 获奖与经历：按时间从新到旧精确排序 (SDGs, DiD, CADA)。
+ * 7. SoundShoes：后缀统一为 .png，完整保留功能说明与并列排版。
+ * 8. 「文化官」：图片采用 flex 布局及自适应缩放确保高度完美对齐。
  */
 
 // --- 静态数据定义 ---
@@ -49,7 +49,7 @@ const educationData = [
   {
     year: "2024.10 - 2025.03",
     title: { zh: "九州大学大学院 艺术工学府 研究生", jp: "九州大学大学院 芸術工学府 研究生", en: "Kyushu University Graduate School of Design (Research Student)" },
-    desc: { zh: "改进修士研究方向，参加设计工作坊。", jp: "修士研究の方向性を改善し、デザインワークショップ参加。", en: "Refined research direction and participated in design workshops." }
+    desc: { zh: "改进修士研究方向，参加设计工作坊。", jp: "修士研究の方向性を改善し、デザインワークショップに参加。", en: "Refined research direction and participated in design workshops." }
   },
   {
     year: "2025.04 - Present",
@@ -168,7 +168,7 @@ const projectData = [
       zh: [
         { t: "概要", d: "一款面向观鸟新手及普通大众设计的未来城市公园智能观鸟体验载具，旨在降低观鸟门槛并唤醒自然保护意识。" },
         { t: "功能特点", d: "提供低速行驶以缓解长途步行 fatigue；搭载多模态交互的HUD（平视显示器）和智能望远镜，提供实时鸟类识别与观察指导；内置“族谱式观鸟图鉴”，通过进化与灭绝的叙事深化教育意义；支持队友间的社交沟通功能。" },
-        { t: "制作过程", d: "课题与分工：交通工具设计课程中以“亚文化”为主题的小组项目。队友负责车体建模和HMI等UI设计，我负责渲染（Twinmotion）、3D动画制作以及骨骼绑定。\n受众定位痛点：调研发现硬核观鸟爱好者乐于徒步且装备专业，载具很难直接提升他们的核心体验。解决方案是将目标人群转向“普通人/新手”，将产品定位从“代步工具”转化为“提供专业指导与设备的综合体验空间”。\n技术制作痛点：渲染视频耗时极长。我通过自学并将视频拆分成每100帧一个文件包，分发给组员和同学的电脑同时进行分布式渲染，并运用VFX技术将小车融入环境背景中。" },
+        { t: "制作过程", d: "课题与分工：交通工具设计课程中以“亚文化”为主题的小组项目。队友负责车体建模和HMI等UI设计，我负责渲染（Twinmotion）、3D动画制作以及骨骼绑定。\n受众定位痛点：调研发现硬核观鸟爱好者乐于徒步且装备专业，载具很难直接提升他们的核心体验。解决方案是将目标人群转向“普通人/新手”，将产品定位从“代步工具”转化为“提供专业指导与设备的综合体验空间”。\n技术制作痛点：渲染视频耗时极长。我通过自学并将视频拆分成每100帧一个文件包，分发给组员 and 同学的电脑同时进行分布式渲染，并运用VFX技术将小车融入环境背景中。" },
         { t: "成果", d: "产出了包含车辆3D渲染图、HUD投影界面、App UI流程以及最终动态展示视频的完整视觉体系。并在2025年，我个人对HUD的UI设计进行了重新重置与打磨（Brush-up），进一步提升了视觉与交互的专业度。" }
       ],
       jp: [
@@ -293,7 +293,7 @@ const projectData = [
         { t: "概要", d: "「文化官」ワークショップは、地域の文化や社会を理解する機会を学生に提供しながら、アルバイトを通じて人と人とのつながりを促進することを目的とした活動です。" },
         { t: "制作背景", d: "近年、日本社会は少子高齢化の影響により労働力不足に直面しており、それに伴い外国人居住者の増加傾向も見られます。将来的に人々が民族や国籍ごとに分断され孤立して暮らすような社会構造にならないためには、外国人と地域社会の相互理解と融合が重要だと考えました。" },
         { t: "調査と課題", d: "留学生へのインタビューの結果、多くの学生が日本文化への理解や日本人との交流、適応を目的にアルバイトを始めますが、実際には多忙な飲食業などが多く、文化的・言語的な成長にはつながりにくいという課題を発見しました。経済的に余裕のある留学生は、そのような環境に魅力を感じられず辞めてしまうケースも少なくありません。" },
-        { t: "コンセプト", d: "留学生が地域文化への理解を深め、社会的な接点を持てるような、より意味のあるアルバイト体験を提供するサービスとして構想しました。また、この活動には日本人学生も一定数参加できるようにし、交流 of 場としての役割も担います。" },
+        { t: "コンセプト", d: "留学生が地域文化への理解を深め、社会的な接点を持てるような、より意味のあるアルバイト体験を提供するサービスとして構想しました。また、この活動には日本人学生も一定数参加できるようにし、交流の場としての役割も担います。" },
         { t: "成果", d: "サービスシステム図およびステークホルダーマップを制作。以下はワークショップのフローと体系図です：" }
       ],
       en: [
@@ -438,9 +438,9 @@ const App = () => {
       steps: [
         { t: "文献調査とテーマ確立 (完了)", d: "回想法と料理療法の有効性を確認。高齢者の在宅自立を支援する研究方向を確定。" },
         { t: "質的調査とDP策定 (完了)", d: "季節性の重要性を解明し、DPを策定。" },
-        { t: "プロトタイプ1开发 (反復中)", d: "3段階の对话ロジックを実装。食材だけでなく周辺要素への質問を統合。" },
-        { t: "第2回調査と认知モデル (计划中)", d: "自宅で未知の料理を用いた测试を実施。認知マップと痛点を可視化。" },
-        { t: "統合プロトタイプの構築 (計画中)", d: "大画面化と操作 of 原子化をUIに反映し、専門家によるヒューリスティック評価を実施。" },
+        { t: "プロトタイプ1開発 (反復中)", d: "3段階の対話ロジックを実装。食材だけでなく周辺要素への質問を統合。" },
+        { t: "第2回調査と認知モデル (計画中)", d: "自宅で未知の料理を用いたテストを実施。認知マップと痛点を可視化。" },
+        { t: "統合プロトタイプの構築 (計画中)", d: "大画面化と操作の原子化をUIに反映し、専門家によるヒューリスティック評価を実施。" },
         { t: "最終ユーザーテスト (計画中)", d: "実際の動線で検証。料理意欲向上を実証。" }
       ],
       theories: [
@@ -665,24 +665,25 @@ const App = () => {
               <ul className="space-y-10 text-[11px] md:text-sm relative">
                 <div className="absolute left-[9px] top-4 bottom-4 w-0.5 bg-white/5"></div>
                 {t[lang].steps.map((step, i) => (
-                  <li key={i} className={`group relative pl-12 ${i === 2 ? 'cursor-pointer' : ''}`}>
+                  <li key={i} className={`group relative pl-12`}> {/* 已移除超链接效果 */}
                     <div className="absolute left-0 top-1 w-5 h-5 rounded-full bg-slate-900 border-2 border-[#9FD9F6] z-10 group-hover:bg-[#9FD9F6] transition-colors"></div>
                     <div className="mb-4">
-                      {i === 2 ? (
-                        <a href="https://gemini.google.com/share/6c123f0d0e8f" target="_blank" rel="noopener noreferrer" className="block">
-                          <div className="flex items-center gap-4 mb-2">
-                            <span className="text-[#9FD9F6] font-mono font-black text-xs uppercase tracking-widest whitespace-nowrap">Stage 0{i+1}</span>
-                            <div className="font-black text-white text-base uppercase tracking-wider flex items-center gap-2">{step.t} <ExternalLink size={14} className="text-[#F59E0B]" /></div>
-                          </div>
-                          <div className="text-slate-400 font-light leading-relaxed max-w-2xl">{step.d}</div>
-                          <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80 hover:opacity-100 transition-opacity"><img src="recipe.png" alt="" className="w-full h-auto" /></div>
-                        </a>
-                      ) : (
-                        <>
-                          <div className="flex items-center gap-4 mb-2"><span className="text-[#9FD9F6] font-mono font-black text-xs uppercase tracking-widest whitespace-nowrap">Stage 0{i+1}</span><div className="font-black text-white text-sm md:text-base uppercase tracking-wider">{step.t}</div></div>
-                          <div className="text-slate-400 font-light leading-relaxed max-w-2xl">{step.d}</div>
-                          {i === 3 && <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80"><img src="recipe-image.png" alt="" className="w-full h-auto" /></div>}
-                        </>
+                      {/* 直接渲染文本和图片，不再包裹 a 标签 */}
+                      <div className="flex items-center gap-4 mb-2">
+                        <span className="text-[#9FD9F6] font-mono font-black text-xs uppercase tracking-widest whitespace-nowrap">Stage 0{i+1}</span>
+                        <div className="font-black text-white text-sm md:text-base uppercase tracking-wider">{step.t}</div>
+                      </div>
+                      <div className="text-slate-400 font-light leading-relaxed max-w-2xl">{step.d}</div>
+                      {/* 为特定步骤展示图片 */}
+                      {i === 2 && (
+                        <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80">
+                          <img src="recipe.png" alt="Prototype 1" className="w-full h-auto" />
+                        </div>
+                      )}
+                      {i === 3 && (
+                        <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80">
+                          <img src="recipe-image.png" alt="Test Result" className="w-full h-auto" />
+                        </div>
                       )}
                     </div>
                   </li>
@@ -716,20 +717,8 @@ const App = () => {
       </section>
 
       {/* Interests */}
-      <section id="hobbies" className="py-32 px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center space-x-6 mb-20"><Heart className={theme.accent} size={40} />
-            <h2 className="text-4xl font-black tracking-tighter uppercase">{t[lang].hobbiesTitle}</h2></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {getHobbiesList(lang).map((hobby, i) => (
-              <div key={i} className="p-12 bg-stone-50 border border-transparent hover:border-[#9FD9F6] transition-all group rounded-sm shadow-sm hover:shadow-2xl">
-                <div className={`w-16 h-16 bg-white text-slate-400 rounded-sm flex items-center justify-center mb-10 group-hover:bg-[#9FD9F6] group-hover:text-white transition-all shadow-sm`}>{i === 0 ? <Palette size={32} /> : i === 1 ? <Camera size={32} /> : <Languages size={32} />}</div>
-                <h3 className="text-2xl font-black mb-4 text-slate-900 tracking-tight">{hobby.name}</h3>
-                <p className="text-slate-500 text-base leading-[2] font-light italic">{hobby.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section id="hobbies" className="py-32 px-8 bg-white border-t border-stone-100">
+        <div className="max-w-5xl mx-auto px-8"><div className="flex items-center space-x-6 mb-20"><Heart className={theme.accent} size={40} /><h2 className="text-4xl font-black tracking-tighter uppercase">{t[lang].hobbiesTitle}</h2></div><div className="grid grid-cols-1 md:grid-cols-3 gap-12">{getHobbiesList(lang).map((hobby, i) => (<div key={i} className="p-12 bg-stone-50 border border-transparent hover:border-[#9FD9F6] transition-all group rounded-sm shadow-sm hover:shadow-2xl"><div className={`w-16 h-16 bg-white text-slate-400 rounded-sm flex items-center justify-center mb-10 group-hover:bg-[#9FD9F6] group-hover:text-white transition-all shadow-sm`}>{i === 0 ? <Palette size={32} /> : i === 1 ? <Camera size={32} /> : <Languages size={32} />}</div><h3 className="text-2xl font-black mb-4 text-slate-900 tracking-tight">{hobby.name}</h3><p className="text-slate-500 text-base leading-[2] font-light italic">{hobby.desc}</p></div>))}</div></div>
       </section>
 
       {/* Footer */}
