@@ -24,7 +24,7 @@ import {
 
 /**
  * 最终视觉精调、理念重构与内容全量录入版：
- * 1. 修正了日语翻译中的错别字：(计划中)->(計画中)、开发->開発、认知->認知等。
+ * 1. 进度更新：将修士研究 Stage 04 状态更新为“已完成”，并加入了线上交互原型的外部跳转链接。
  * 2. 理念重构：Main Copy（蓝色）、Sub Copy（黑色）、Lead Text（无换行）。
  * 3. 边栏优化：蓝色竖线（border-l-2）移至右侧整体容器，加长并与所有理念内容完美对齐。
  * 4. 布局比例：左侧个人介绍占 3/10 宽度 (col-span-3)，右侧占 7/10 宽度 (col-span-7)。
@@ -49,7 +49,7 @@ const educationData = [
   {
     year: "2024.10 - 2025.03",
     title: { zh: "九州大学大学院 艺术工学府 研究生", jp: "九州大学大学院 芸術工学府 研究生", en: "Kyushu University Graduate School of Design (Research Student)" },
-    desc: { zh: "改进修士研究方向，参加设计工作坊。", jp: "修士研究の方向性を改善し、デザインワークショップに参加。", en: "Refined research direction and participated in design workshops." }
+    desc: { zh: "改进修士研究方向，参加设计工作坊。", jp: "修士研究の方向性を改善し、デザインワークショップ参加。", en: "Refined research direction and participated in design workshops." }
   },
   {
     year: "2025.04 - Present",
@@ -92,7 +92,7 @@ const activities = [
   {
     year: "2023.05",
     title: { zh: "CADA 日本概念艺术设计奖", jp: "CADA 日本コンセプトアートデザイン賞", en: "CADA Japan Concept Art Design Award" },
-    desc: { zh: "项目：森林棋墙与森林乐队。荣获铜奖。针对中国“隔代育儿”现象 of 自然教育空间提案。", jp: "プロジェクト：森のチェスウォールと森のおんがくか。銅賞を受賞。中国における「隔代教育」の心理的課題を解決する空間デザイン。", en: "Project: Forest Chess Wall & Band. Awarded Bronze Prize. A spatial design intervention for 'intergenerational parenting' in China." }
+    desc: { zh: "项目：森林棋墙与森林乐队。荣获铜奖。针对中国“隔代育儿”现象的自然教育空间提案。", jp: "プロジェクト：森のチェスウォールと森のおんがくか。銅賞を受賞。中国における「隔代教育」の心理的課題を解決する空間デザイン。", en: "Project: Forest Chess Wall & Band. Awarded Bronze Prize. A spatial design intervention for 'intergenerational parenting' in China." }
   }
 ];
 
@@ -409,7 +409,7 @@ const App = () => {
         { t: "文献调查 (已完成)", d: "确认回想与烹饪疗法结合的有效性，确立以支持高龄者居家独立生活为目标的研发方向。" },
         { t: "访谈调查 (已完成)", d: "分析饮食记忆中的季节性重要性。确立重现历史文脉等设计原则。" },
         { t: "原型设计 (迭代中)", d: "开发对话Web应用，独创3阶段对话逻辑。整合餐具、节庆等唤醒元素。" },
-        { t: "认知建模 (计划中)", d: "在居家厨房通过陌材料理测试变量。产出高龄者新菜习得认知地图与痛点映射。" },
+        { t: "认知建模与实测 (已完成)", d: "在居家真实厨房中邀请高龄者使用交互原型进行了料理测试。产出高龄者新菜习得认知地图与痛点映射。", link: "https://lizypeco.github.io/goya-turorial/" },
         { t: "原型整合与专家评估 (计划中)", d: "落实大画面、动作原子化UI策略。通过专家评估提前排查系统隐患。" },
         { t: "用户验证 (计划中)", d: "在真实动线中验证系统能否显著提升老年人的自我效能感与料理意愿。" }
       ],
@@ -434,12 +434,12 @@ const App = () => {
       eduTitle: "経歴", actTitle: "学外活動・インターン・受賞実績",
       projectTitle: "プロジェクト", otherWorksTitle: "その他", showcaseTitle: "ポートフォリオファイル", researchTitle: "修士研究", hobbiesTitle: "個人趣味", methodsTitle: "STEPS",
       researchSubject: "料理療法および回想療法に基づく高齢者の思い出レシピ生成手法の研究",
-      researchSummary: "回想療法と料理療法を融合した对话型AIを用いて、高齢者の『食の記憶』から思い出のレシピを生成し支援する研究です。",
+      researchSummary: "回想療法と料理療法を融合した対話型AIを用いて、高齢者の『食の記憶』から思い出のレシピを生成し支援する研究です。",
       steps: [
         { t: "文献調査とテーマ確立 (完了)", d: "回想法と料理療法の有効性を確認。高齢者の在宅自立を支援する研究方向を確定。" },
         { t: "質的調査とDP策定 (完了)", d: "季節性の重要性を解明し、DPを策定。" },
         { t: "プロトタイプ1開発 (反復中)", d: "3段階の対話ロジックを実装。食材だけでなく周辺要素への質問を統合。" },
-        { t: "第2回調査と認知モデル (計画中)", d: "自宅で未知の料理を用いたテストを実施。認知マップと痛点を可視化。" },
+        { t: "第2回調査と認知モデル (完了)", d: "自宅のキッチンで高齢者にプロトタイプを用いた未知の料理テストを実施。学習の認知マップと痛点を可視化。", link: "https://lizypeco.github.io/goya-turorial/" },
         { t: "統合プロトタイプの構築 (計画中)", d: "大画面化と操作の原子化をUIに反映し、専門家によるヒューリスティック評価を実施。" },
         { t: "最終ユーザーテスト (計画中)", d: "実際の動線で検証。料理意欲向上を実証。" }
       ],
@@ -469,7 +469,7 @@ const App = () => {
         { t: "Literature (Done)", d: "Confirmed fusion therapy efficacy." },
         { t: "Interview (Done)", d: "Identified festive context insights." },
         { t: "Prototype (Iterating)", d: "Developed 3-stage dialogue logic." },
-        { t: "Modeling (Planned)", d: "Mapped cognitive models in kitchen." },
+        { t: "Modeling & Field Test (Done)", d: "Conducted cooking tests with older adults in real kitchens using the interactive prototype. Mapped cognitive models and pain points.", link: "https://lizypeco.github.io/goya-turorial/" },
         { t: "Integration & Heuristic Review (Planned)", d: "Applied UI atomization and conducted evaluations." },
         { t: "Final Validation (Planned)", d: "Verified results in real kitchen flows." }
       ],
@@ -665,15 +665,22 @@ const App = () => {
               <ul className="space-y-10 text-[11px] md:text-sm relative">
                 <div className="absolute left-[9px] top-4 bottom-4 w-0.5 bg-white/5"></div>
                 {t[lang].steps.map((step, i) => (
-                  <li key={i} className={`group relative pl-12`}> {/* 已移除超链接效果 */}
+                  <li key={i} className={`group relative pl-12 ${step.link ? 'cursor-pointer' : ''}`}>
                     <div className="absolute left-0 top-1 w-5 h-5 rounded-full bg-slate-900 border-2 border-[#9FD9F6] z-10 group-hover:bg-[#9FD9F6] transition-colors"></div>
                     <div className="mb-4">
-                      {/* 直接渲染文本和图片，不再包裹 a 标签 */}
+                      {/* 直接渲染文本和图片，如果存在 link 则使用 a 标签 */}
                       <div className="flex items-center gap-4 mb-2">
                         <span className="text-[#9FD9F6] font-mono font-black text-xs uppercase tracking-widest whitespace-nowrap">Stage 0{i+1}</span>
-                        <div className="font-black text-white text-sm md:text-base uppercase tracking-wider">{step.t}</div>
+                        {step.link ? (
+                          <a href={step.link} target="_blank" rel="noopener noreferrer" className="font-black text-white text-sm md:text-base uppercase tracking-wider flex items-center gap-2 hover:text-[#5BB2DF] transition-colors">
+                            {step.t} <ExternalLink size={14} className="text-[#F59E0B]" />
+                          </a>
+                        ) : (
+                          <div className="font-black text-white text-sm md:text-base uppercase tracking-wider">{step.t}</div>
+                        )}
                       </div>
                       <div className="text-slate-400 font-light leading-relaxed max-w-2xl">{step.d}</div>
+                      
                       {/* 为特定步骤展示图片 */}
                       {i === 2 && (
                         <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80">
@@ -681,9 +688,15 @@ const App = () => {
                         </div>
                       )}
                       {i === 3 && (
-                        <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80">
-                          <img src="recipe-image.png" alt="Test Result" className="w-full h-auto" />
-                        </div>
+                        step.link ? (
+                          <a href={step.link} target="_blank" rel="noopener noreferrer" className="block rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80 hover:opacity-100 transition-opacity">
+                            <img src="recipe-image.png" alt="Test Result" className="w-full h-auto" />
+                          </a>
+                        ) : (
+                          <div className="rounded-sm overflow-hidden border border-white/10 shadow-2xl mt-4 max-w-lg opacity-80">
+                            <img src="recipe-image.png" alt="Test Result" className="w-full h-auto" />
+                          </div>
+                        )
                       )}
                     </div>
                   </li>
