@@ -29,9 +29,10 @@ import {
  * 3. 边栏优化：蓝色竖线（border-l-2）移至右侧整体容器，加长并与所有理念内容完美对齐。
  * 4. 布局比例：左侧个人介绍占 3/10 宽度 (col-span-3)，右侧占 7/10 宽度 (col-span-7)。
  * 5. 导航栏：文字 whitespace-nowrap 确保绝对不换行。
- * 6. 获奖与经历：按时间从新到旧精确排序 (SDGs, DiD, CADA)。
- * 7. SoundShoes：后缀统一为 .png，完整保留功能说明与并列排版。
- * 8. 「文化官」：图片采用 flex 布局及自适应缩放确保高度完美对齐。
+ * 6. 获奖与经历拆分：将实习经历与获奖经历拆分为独立板块，按时间从新到旧精确排序。
+ * 7. 增补2026年Keyence设计职线上实习、2026年日本IBM UX Design夏季实习、GOOD DESIGN NEW HOPE AWARD 2026（SoundShoes入选）。
+ * 8. SoundShoes：后缀统一为 .png，完整保留功能说明与并列排版。
+ * 9. 「文化官」：图片采用 flex 布局及自适应缩放确保高度完美对齐。
  */
 
 // --- 静态数据定义 ---
@@ -58,16 +59,60 @@ const educationData = [
   }
 ];
 
-const activities = [
+const internshipsData = [
+  {
+    year: "2026.11",
+    title: { zh: "KEYENCE（基恩士）设计职 线上实习", jp: "キーエンス デザイン職 オンラインインターン", en: "KEYENCE Design Online Internship" },
+    desc: { 
+      zh: "入选基恩士设计职在线实习实训。针对工厂业务场景，开展软硬件UI/UX及高附加值产品设计提案。", 
+      jp: "デザイン職オンラインインターンシップに参加。工場の業務シーンを対象に、UI/UXおよび高付加価値プロダクトデザインの課題に取り組む。", 
+      en: "Participated in KEYENCE's online design internship, tackling UI/UX and product design challenges for factory operations." 
+    }
+  },
+  {
+    year: "2026.08",
+    title: { zh: "日本IBM UX Design 夏季实习（设计师课程）", jp: "日本IBM UXデザイン 夏季インターン（デザイナー・コース）", en: "IBM Japan UX Design Summer Internship (Designer Course)" },
+    desc: { 
+      zh: "入选日本IBM夏季设计师实习。基于企业级真实课题，快速推进敏捷UX调研洞察、设计概念方案制定与高保真交互原型验证。", 
+      jp: "デザイナー・コースに選考通過し参加。企業の実課題に基づき、アジャイルなUXリサーチ、コンセプト立案、プロトタイプ検証を一気通貫で実践。", 
+      en: "Selected for the Designer Course. Led agile enterprise UX research, concept design, and prototype validation." 
+    }
+  },
   {
     year: "2026.01",
-    title: { zh: "TAKI CORPORATION UI/UX 实习", jp: "たきコーポレーション UI/UX インターン", en: "TAKI CORPORATION UI/UX Internship" },
-    desc: { zh: "从调研分析 to UI设计，一站式制作并发表APP提案。", jp: "調査からUI設計まで一貫してアプリ案を制作・発表。", en: "Produced and presented app proposals from research to UI design." }
+    title: { zh: "TAKI CORPORATION UI/UX 实操实习（设计师职）", jp: "たきコーポレーション 実践UI/UXインターン（デザイナー職）", en: "TAKI CORPORATION Practical UI/UX Internship (Designer Track)" },
+    desc: { 
+      zh: "参加包含为期一周自主制作的UI/UX实操研修。通过真实用户访谈提炼核心痛点，利用 Miro 协作并独立深化服务与沟通企划，一站式完成从调研洞察到UI提案的落地输出与答辩。", 
+      jp: "1週間の自主制作期間を含むUI/UX実践プログラムに参加。実際のユーザーインタビューから課題を抽出し、Miroを活用したワークを経てサービス企画とUI設計を一貫して立案・発表。", 
+      en: "Participated in the practical UI/UX program including a one-week independent design sprint. Extracted insights via user interviews, ideated using Miro, and delivered end-to-end service and UI design proposals." 
+    }
   },
   {
     year: "2025.08",
-    title: { zh: "丰田汽车 UI/UX 实习", jp: "トヨタ UI/UX インターンシップ", en: "Toyota UI/UX Internship" },
-    desc: { zh: "通过实地调研在短时间内构建并发表全新服务企划。", jp: "現地調査から新規サービス企画面を短期間で構築。", en: "Developed new service concepts based on field research." }
+    title: { zh: "丰田汽车 设计师夏令营（TOYOTA DESIGN Camp）", jp: "トヨタ自動車 TOYOTA DESIGN デザイナーズキャンプ", en: "TOYOTA DESIGN Designer's Camp Summer 2025" },
+    desc: { 
+      zh: "入选丰田东京设计研究所（八王子）为期5天的线下实训营。结合实地研讨与集中设计工坊，在作品发表会中进行展示与研讨。", 
+      jp: "東京デザイン研究所（八王子）での5日間集中キャンプに参加。実地での施設見学や先進デザインワークを通じ、作品発表会にて展示・ディスカッションを実施。", 
+      en: "Selected for the 5-day on-site camp at Toyota Tokyo Design Research Lab. Engaged in intensive design workshops and presented work at the final review session." 
+    }
+  },
+  {
+    year: "2023.07 - 09",
+    title: { zh: "广州・平面设计长期实习", jp: "広州・グラフィックデザイン長期インターン", en: "Graphic Design Internship in Guangzhou" },
+    desc: { zh: "负责公园展示板及科普牌设计，成果已在当地落地设置。", jp: "公園の看板や広報パネルのデザインを担当。実物が現地に設置された。", en: "Designed public park information boards and panels (deployed)." }
+  }
+];
+
+const awardsData = [
+  {
+    year: "2026.10",
+    title: { zh: "GOOD DESIGN NEW HOPE AWARD 2026", jp: "GOOD DESIGN NEW HOPE AWARD 2026", en: "GOOD DESIGN NEW HOPE AWARD 2026" },
+    desc: { 
+      zh: "项目：SoundShoes。荣获入选（Honorable Mention / 机制设计类别）。针对帕金森患者通过“脚步声音频线索”改善步态的康复支援App。", 
+      jp: "プロジェクト：SoundShoes。仕組みのデザインカテゴリーにて「入選」を受賞。様々な「足音」を聴覚提示として提供し、パーキンソン病患者の歩行訓練やすくみ足を支援するアプリ。", 
+      en: "Project: SoundShoes. Awarded Honorable Mention (System Design). A mobile app providing footstep auditory cues to improve gait rehabilitation and alleviate freezing of gait for Parkinson's patients." 
+    },
+    link: "https://newhope.g-mark.org/award/2026/26NHA040020.html"
   },
   {
     year: "2024.12",
@@ -85,11 +130,6 @@ const activities = [
     desc: { zh: "项目：玄武。荣获三等奖。跨学科合作开发的乡村防溺水智能救援系统。", jp: "プロジェクト：玄武。三等賞を受賞。農村部向け溺水防止スマート救援システムを学際的プロジェクトとして開発。", en: "Project: XUAN WU. Awarded 3rd Prize. An interdisciplinary smart rescue system for rural drowning prevention." }
   },
   {
-    year: "2023.07 - 09",
-    title: { zh: "广州・平面设计长期实习", jp: "広州・グラフィックデザイン長期インターン", en: "Graphic Design Internship in Guangzhou" },
-    desc: { zh: "负责公园展示板及科普牌设计，成果已在当地落地设置。", jp: "公園の看板や広報パネルのデザインを担当。実物が現地に設置された。", en: "Designed public park information boards and panels (deployed)." }
-  },
-  {
     year: "2023.05",
     title: { zh: "CADA 日本概念艺术设计奖", jp: "CADA 日本コンセプトアートデザイン賞", en: "CADA Japan Concept Art Design Award" },
     desc: { zh: "项目：森林棋墙与森林乐队。荣获铜奖。针对中国“隔代育儿”现象的自然教育空间提案。", jp: "プロジェクト：森のチェスウォールと森のおんがくか。銅賞を受賞。中国における「隔代教育」の心理的課題を解決する空間デザイン。", en: "Project: Forest Chess Wall & Band. Awarded Bronze Prize. A spatial design intervention for 'intergenerational parenting' in China." }
@@ -105,24 +145,25 @@ const projectData = [
     summary: { zh: "针对帕金森患者的步行康复支援App。", jp: "パーキンソン病患者向け歩行リハビリ支援アプリ。", en: "Gait rehab support app for Parkinson's." },
     videoUrl: "https://www.youtube.com/embed/dVdjk5dCTFc",
     figmaEmbedUrl: "https://embed.figma.com/proto/g25sVCAzuC3ASyWTDvNhhB/%E8%B6%B3%E9%9F%B3?node-id=926-14775&page-id=926%3A12124&starting-point-node-id=926%3A14515&embed-host=share",
+    awardUrl: "https://newhope.g-mark.org/award/2026/26NHA040020.html",
     details: {
       zh: [
         { t: "概要", d: "这是一款旨在通过提供不同“脚步声”作为听觉提示，改善帕金森患者步行康复训练体验、缓解冻结步态的移动端应用。" },
         { t: "功能特点", d: "核心机制：将“脚步声”作为听觉线索（代替纯音乐或节拍器），利用其天然的空间信息降低认知负担，防止冻结步态。\n任务与激励系统：设有个人任务（赚取金币解锁新脚步声）和协作任务（添加好友组队换取特殊声音），增强康复动机与社交联系。\nJourney Set（旅程列表）：用户可自定义脚步声播放列表，模拟前往某地的沿途情景，让枯燥的康复室训练变成丰富的“旅程”体验。\n适老化适医化设计：医生端可介入填写数据并设定安全步速限制；步速控制条摒弃了BPM，改为老人易懂的“步/分钟”，并带有吸附点方便滑动操作。" },
         { t: "制作过程", d: "课题发展：起源于解决帕金森患者步行问题的课程。通过医院见学发现，现有康复训练枯燥、缺乏交流，且患者易发冻结步态跌倒。\n难题与解决：最初想做视听结合的游戏化方案，但文献调研指出多模态提示会增加认知负荷导致跌倒。最终通过“单纯脚步声”解决该问题。在UI设计上，为避免老人将“切换脚步声”误认为“快进”，参考短视频逻辑，去除传统的播放/切歌按键，改为“左右滑动切换、点击画面暂停/播放”；并将功能Icon替换为直观的文字。" },
-        { t: "成果", d: "使用Figma制作了极高保真度的原型，利用Variant property、Boolean property and Auto layout等高级功能，详细设定了注册、弹窗、模式切换等交互跳转，保持了工程文件的整洁与规范。以下为成果演示与原型：" }
+        { t: "成果", d: "荣获 GOOD DESIGN NEW HOPE AWARD 2026 入选（仕組みのデザイン）。使用Figma制作了极高保真度的原型，利用Variant property、Boolean property and Auto layout等高级功能，详细设定了注册、弹窗、模式切换等交互跳转，保持了工程文件的整洁与规范。以下为成果演示与原型：" }
       ],
       jp: [
         { t: "概要", d: "様々な「足音」を聴覚提示として提供することで、パーキンソン病患者の歩行訓練体験を改善し、すくみ足を緩和することを目指したモバイルアプリ。" },
         { t: "特徴", d: "コアメカニズム：音楽の代わりに「足音」を聴覚の手がかりとし、空間情報を利用して認知負荷を軽減。ミッションシステムやJourney Set機能を搭載。高齢者向けにBPM表記を「歩/分」に変更し、吸着型スライダーを採用。" },
         { t: "プロセス", d: "背景：病院見学を通じ、訓練の単調さと転倒リスクを把握。認知負荷を避けるためシンプルな足音に集約。UIはスワイプ操作を採用。アイコンを文字表記へ置き換えた。" },
-        { t: "成果", d: "Figmaで高精度プロトタイプを制作。VariantやAuto layoutを駆使。以下は成果のデモです：" }
+        { t: "成果", d: "GOOD DESIGN NEW HOPE AWARD 2026 入選（仕組みのデザイン）。Figmaで高精度プロトタイプを制作。VariantやAuto layoutを駆使。以下は成果のデモです：" }
       ],
       en: [
         { t: "Overview", d: "A mobile application providing footstep sounds as auditory cues to improve gait rehabilitation and alleviate 'Freeze of Gait' for Parkinson's patients." },
         { t: "Features", d: "Uses footsteps instead of music to reduce cognitive load; mission systems for motivation; travel playlists. Senior-friendly design with simplified units." },
         { t: "Process", d: "Developed from clinical visits identifying fall risks. Research steered design toward simple footsteps to ensure intuitive elderly operation." },
-        { t: "Results", d: "High-fidelity Figma prototype utilizing advanced features. Mapped comprehensive flows." }
+        { t: "Results", d: "Awarded GOOD DESIGN NEW HOPE AWARD 2026 Honorable Mention (System Design). High-fidelity Figma prototype utilizing advanced features. Mapped comprehensive flows." }
       ]
     },
     github: "#", 
@@ -336,7 +377,8 @@ const App = () => {
   const [lang, setLang] = useState('jp');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showActivities, setShowActivities] = useState(false);
+  const [showInternships, setShowInternships] = useState(true);
+  const [showAwards, setShowAwards] = useState(true);
   const [activeSection, setActiveSection] = useState('profile');
   const scrollRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -401,7 +443,7 @@ const App = () => {
       introSub: "以好奇心为引擎，从研究到落地一气呵成的共创型设计师。",
       introLead: "以工科跨界设计的探索为原点，在接地气的现场调研中将看不见的痛点结构化并予以洞察。将AI与3D技术化作“压倒性的落地执行力”，最快速度将创意翻译为可触可感的原型。让技术与人的情感和谐共鸣，持续为社会输出正向改变日常的UI/UX。",
       nav: ["个人简介", "经历", "项目作品", "作品集", "修士研究", "个人兴趣"],
-      eduTitle: "经历", actTitle: "学外活动・实习・获奖记录",
+      eduTitle: "教育经历", internshipTitle: "实习经历", awardTitle: "获奖经历", actTitle: "学外活动・实习・获奖记录",
       projectTitle: "项目作品", otherWorksTitle: "其它", showcaseTitle: "作品集文件", researchTitle: "修士研究", hobbiesTitle: "个人兴趣", methodsTitle: "STEPS",
       researchSubject: "基于烹饪疗法及回想疗法的面向高龄者回忆食谱生成方法研究",
       researchSummary: "该研究利用融合了回想疗法与烹饪疗法的对话型AI，从高龄者的“饮食记忆”中生成回忆食谱。",
@@ -431,7 +473,7 @@ const App = () => {
       introSub: "好奇心をエンジンに、リサーチから実装まで一気通貫で伴走する、共創型デザイナー。",
       introLead: "工学からデザインへの越境を原点に、現場の泥臭いリサーチで見えない不満を構造化し、捉えます。AIや3Dを活用した「圧倒的な実装力」を武器に、アイデアを最速で触れるプロトタイプへと翻訳。テクノロジーと人間の感情を調和させ、人々の日常を前向きに変えるUI/UXを社会に実装し続けます。",
       nav: ["プロフィール", "経歴", "プロジェクト", "ポートフォリオ", "修士研究", "趣味"],
-      eduTitle: "経歴", actTitle: "学外活動・インターン・受賞実績",
+      eduTitle: "学歴", internshipTitle: "インターンシップ", awardTitle: "受賞実績", actTitle: "学外活動・インターン・受賞実績",
       projectTitle: "プロジェクト", otherWorksTitle: "その他", showcaseTitle: "ポートフォリオファイル", researchTitle: "修士研究", hobbiesTitle: "個人趣味", methodsTitle: "STEPS",
       researchSubject: "料理療法および回想療法に基づく高齢者の思い出レシピ生成手法の研究",
       researchSummary: "回想療法と料理療法を融合した対話型AIを用いて、高齢者の『食の記憶』から思い出のレシピを生成し支援する研究です。",
@@ -461,7 +503,7 @@ const App = () => {
       introSub: "Powered by curiosity, a co-creative designer accompanying projects from research to implementation.",
       introLead: "Rooted in the journey of crossing boundaries from engineering to design, I structure and capture unseen frustrations through muddy, hands-on field research. Weaponizing an 'overwhelming power of execution' via AI and 3D modeling, I rapidly translate abstract ideas into tangible prototypes. By harmonizing technology and human emotion, I continuously implement UI/UX that reshapes daily lives in a positive way.",
       nav: ["Profile", "Experience", "Projects", "Portfolio", "Research", "Hobbies"],
-      eduTitle: "Experience History", actTitle: "Extracurricular, Internship & Awards",
+      eduTitle: "Education", internshipTitle: "Internships", awardTitle: "Awards & Honors", actTitle: "Extracurricular, Internship & Awards",
       projectTitle: "Projects", otherWorksTitle: "Other", showcaseTitle: "Portfolio File", researchTitle: "Master's Research", hobbiesTitle: "Interests", methodsTitle: "STEPS",
       researchSubject: "Research on Nostalgic Recipes for Older Adults.",
       researchSummary: "Integrating reminiscence and culinary therapy with AI.",
@@ -583,18 +625,73 @@ const App = () => {
               </div>
             ))}
           </div>
-          <div id="activities" className="mt-24 border-t border-stone-100 pt-16">
-            <button onClick={() => setShowActivities(!showActivities)} className={`flex items-center space-x-6 ${theme.primaryText} font-black hover:text-[#F59E0B] transition-colors uppercase tracking-[0.3em] text-sm`}>
-              <Briefcase size={24} /><span>{t[lang].actTitle}</span><ChevronDown className={`transition-transform duration-500 ${showActivities ? 'rotate-180' : ''}`} size={24} />
+          {/* 实习经历 */}
+          <div id="internships" className="mt-24 border-t border-stone-100 pt-16">
+            <button 
+              onClick={() => setShowInternships(!showInternships)} 
+              className={`flex items-center space-x-6 ${theme.primaryText} font-black hover:text-[#F59E0B] transition-colors uppercase tracking-[0.3em] text-sm`}
+            >
+              <Briefcase size={24} />
+              <span>{t[lang].internshipTitle}</span>
+              <ChevronDown className={`transition-transform duration-500 ${showInternships ? 'rotate-180' : ''}`} size={24} />
             </button>
-            <div className={`overflow-hidden transition-all duration-700 ${showActivities ? 'max-h-[2000px] opacity-100 mt-16' : 'max-h-0 opacity-0'}`}>
+            <div className={`overflow-hidden transition-all duration-700 ${showInternships ? 'max-h-[2000px] opacity-100 mt-16' : 'max-h-0 opacity-0'}`}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12 pl-12">
-                {activities.map((item, i) => (
+                {internshipsData.map((item, i) => (
                   <div key={i} className="relative group">
                     <div className="absolute -left-12 top-2 w-4 h-4 rounded-full bg-[#9FD9F6] opacity-30 group-hover:opacity-100 transition-opacity" />
                     <div className="text-[10px] font-bold text-stone-400 mb-2 tracking-widest">{item.year}</div>
                     <h4 className="font-black text-lg md:text-xl mb-3 text-slate-800 leading-tight">{item.title[lang]}</h4>
                     <p className="text-slate-500 text-[10px] md:text-sm font-light leading-loose">{item.desc[lang]}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* 获奖经历 */}
+          <div id="awards" className="mt-24 border-t border-stone-100 pt-16">
+            <button 
+              onClick={() => setShowAwards(!showAwards)} 
+              className={`flex items-center space-x-6 ${theme.primaryText} font-black hover:text-[#F59E0B] transition-colors uppercase tracking-[0.3em] text-sm`}
+            >
+              <Award size={24} />
+              <span>{t[lang].awardTitle}</span>
+              <ChevronDown className={`transition-transform duration-500 ${showAwards ? 'rotate-180' : ''}`} size={24} />
+            </button>
+            <div className={`overflow-hidden transition-all duration-700 ${showAwards ? 'max-h-[2000px] opacity-100 mt-16' : 'max-h-0 opacity-0'}`}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12 pl-12">
+                {awardsData.map((item, i) => (
+                  <div key={i} className="relative group">
+                    <div className="absolute -left-12 top-2 w-4 h-4 rounded-full bg-[#F59E0B] opacity-30 group-hover:opacity-100 transition-opacity" />
+                    <div className="text-[10px] font-bold text-stone-400 mb-2 tracking-widest">{item.year}</div>
+                    {item.link ? (
+                      <a 
+                        href={item.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center gap-2 font-black text-lg md:text-xl mb-3 text-slate-800 hover:text-[#5BB2DF] transition-colors leading-tight group/link"
+                      >
+                        <span>{item.title[lang]}</span>
+                        <ExternalLink size={16} className="text-[#F59E0B] flex-shrink-0 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                      </a>
+                    ) : (
+                      <h4 className="font-black text-lg md:text-xl mb-3 text-slate-800 leading-tight">{item.title[lang]}</h4>
+                    )}
+                    <p className="text-slate-500 text-[10px] md:text-sm font-light leading-loose">{item.desc[lang]}</p>
+                    {item.link && (
+                      <div className="mt-3">
+                        <a 
+                          href={item.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5BB2DF] hover:text-[#F59E0B] transition-colors"
+                        >
+                          <span>{lang === 'jp' ? '受賞実績ページを見る' : lang === 'zh' ? '查看获奖项目页面' : 'View Award Page'}</span>
+                          <ExternalLink size={12} />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -866,6 +963,12 @@ const App = () => {
                 <div className="space-y-8 pt-8 border-t border-stone-100">
                   <h4 className="text-[10px] font-black text-stone-300 uppercase tracking-[0.4em]">Links</h4>
                   <div className="flex flex-col gap-5">
+                    {selectedProject.awardUrl && (
+                      <a href={selectedProject.awardUrl} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-900 hover:text-orange-500 transition-colors group">
+                        <Award size={24} className="group-hover:scale-110 transition-transform text-[#F59E0B]" />
+                        <span className="font-black text-xs tracking-widest uppercase border-b border-stone-100 group-hover:border-orange-200">GOOD DESIGN NEW HOPE AWARD 2026</span>
+                      </a>
+                    )}
                     {selectedProject.github && selectedProject.github !== "#" && (
                       <a href={selectedProject.github} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-900 hover:text-orange-500 transition-colors group">
                         <GithubIcon size={24} className="group-hover:scale-110 transition-transform" />
