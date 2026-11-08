@@ -141,7 +141,7 @@ const projectData = [
     id: 1, 
     title: { zh: "SoundShoes", jp: "SoundShoes", en: "SoundShoes" }, 
     tag: "Healthcare", 
-    img: "1078123059.png", 
+    img: "soundshoes-cover.jpg", 
     summary: { zh: "针对帕金森患者的步行康复支援App。", jp: "パーキンソン病患者向け歩行リハビリ支援アプリ。", en: "Gait rehab support app for Parkinson's." },
     videoUrl: "https://www.youtube.com/embed/ncZBE0WExWo",
     figmaEmbedUrl: "https://embed.figma.com/proto/g25sVCAzuC3ASyWTDvNhhB/%E8%B6%B3%E9%9F%B3?node-id=1471-14786&page-id=1471%3A12067&starting-point-node-id=1471%3A14786&embed-host=share",
@@ -983,7 +983,7 @@ const App = () => {
                             <img src="19.png" alt="Output 2" className="rounded-sm shadow-md border border-stone-100 w-full h-auto" />
                           </div>
                           <div className="grid grid-cols-2 gap-4">
-                            <img src="20.png" alt="Output 3" className="rounded-sm shadow-md border border-stone-100 w-full h-auto" />
+                            <img src="soundshoes-output3.jpg" alt="Output 3" className="rounded-sm shadow-md border border-stone-100 w-full h-auto" />
                             <img src="22.png" alt="Output 4" className="rounded-sm shadow-md border border-stone-100 w-full h-auto" />
                           </div>
                         </div>
