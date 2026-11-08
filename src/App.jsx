@@ -143,8 +143,8 @@ const projectData = [
     tag: "Healthcare", 
     img: "1078123059.png", 
     summary: { zh: "针对帕金森患者的步行康复支援App。", jp: "パーキンソン病患者向け歩行リハビリ支援アプリ。", en: "Gait rehab support app for Parkinson's." },
-    videoUrl: "https://www.youtube.com/embed/dVdjk5dCTFc",
-    figmaEmbedUrl: "https://embed.figma.com/proto/g25sVCAzuC3ASyWTDvNhhB/%E8%B6%B3%E9%9F%B3?node-id=926-14775&page-id=926%3A12124&starting-point-node-id=926%3A14515&embed-host=share",
+    videoUrl: "https://www.youtube.com/embed/ncZBE0WExWo",
+    figmaEmbedUrl: "https://embed.figma.com/proto/g25sVCAzuC3ASyWTDvNhhB/%E8%B6%B3%E9%9F%B3?node-id=1471-14786&page-id=1471%3A12067&starting-point-node-id=1471%3A14786&embed-host=share",
     awardUrl: "https://newhope.g-mark.org/award/2026/26NHA040020.html",
     details: {
       zh: [
@@ -167,7 +167,103 @@ const projectData = [
       ]
     },
     github: "#", 
-    figma: "https://www.figma.com/proto/g25sVCAzuC3ASyWTDvNhhB/%E8%B6%B3%E9%9F%B3?node-id=926-14515&page-id=926%3A12124&starting-point-node-id=926%3A14515&t=5weVgro6q9HDNkiY-1" 
+    figma: "https://www.figma.com/proto/g25sVCAzuC3ASyWTDvNhhB/%E8%B6%B3%E9%9F%B3?node-id=1471-14786&viewport=136%2C186%2C0.06&t=K3V4cYlisn7Odwa4-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1471%3A14786&page-id=1471%3A12067" 
+  },
+  { 
+    id: 8, 
+    title: { zh: "めぐりレシピ", jp: "めぐりレシピ", en: "Meguri-Recipe" }, 
+    tag: "UI/UX & Service", 
+    img: "meguri-recipe.jpg", 
+    summary: { 
+      zh: "地产生鲜食材发掘与购买App。以食谱为起点的创新服务设计与AI驱动原型。", 
+      jp: "地産食材を見つけて購入できるアプリ。日本の『旬のめぐり』を食卓に届けるサービスデザイン。", 
+      en: "A recipe-driven local produce eCommerce and service design app connecting everyday dining with regional farms." 
+    },
+    figmaEmbedUrl: "https://embed.figma.com/proto/fwEP0PaBKFfbsyWU5mB94f?node-id=203-3532&t=tDW281pg1se1ERIe-6&embed-host=share",
+    prototypes: [
+      {
+        name: { zh: "GitHub 在线原型落地页", jp: "GitHub 公開プロトタイプ付きLP", en: "GitHub Landing Page with Prototype" },
+        tag: "Web Landing Page",
+        desc: { zh: "包含完整服务概念、功能介绍与即时交互原型的独立落地页", jp: "サービスの全体像とプロトタイプを体験できるWeb公開ページ", en: "Official web landing page with complete overview and live demo" },
+        url: "https://lizypeco.github.io/meguri-recipe1/"
+      },
+      {
+        name: { zh: "Web 在线交互模拟器", jp: "Web インタラクティブシミュレーター", en: "Web Interactive Simulator" },
+        tag: "Live Simulator",
+        desc: { zh: "无需安装，在浏览器中直接体验端到端的完整点餐与诊断流程", jp: "ブラウザ上で直接操作できる対話型UIシミュレーター", en: "Direct in-browser interactive testing and ordering simulator" },
+        url: "https://lizypeco.github.io/meguri-recipe1/#simulator"
+      },
+      {
+        name: { zh: "Figma 高保真交互原型", jp: "Figma UIプロトタイプ", en: "Figma Interactive UI Prototype" },
+        tag: "Figma Prototype",
+        desc: { zh: "包含详细页面跳转、微交互动效与完整组件状态的高保真原型", jp: "画面遷移や細部のマイクロインタラクションを再現したUIプロトタイプ", en: "High-fidelity mobile UI prototype with comprehensive flows and transitions" },
+        url: "https://www.figma.com/proto/fwEP0PaBKFfbsyWU5mB94f?node-id=203-3532&t=tDW281pg1se1ERIe-6"
+      },
+      {
+        name: { zh: "Figma Make 可运行代码原型", jp: "Figma Make プロトタイプ", en: "Figma Make Runnable Prototype" },
+        tag: "Figma Make",
+        desc: { zh: "利用 Figma Make 敏捷构建的代码级可运行交互原型", jp: "Figma Make を駆使してコードベースで動作する最新プロトタイプ", en: "Runnable code-based prototype crafted with Figma Make" },
+        url: "https://www.figma.com/make/v0XxhCWn6ZkikHwTxSQCOV/UI%E8%AE%BE%E8%AE%A1%E3%82%81%E3%81%90%E3%82%8A%E3%83%AC%E3%82%B7%E3%83%94%E5%BA%94%E7%94%A8?fullscreen=1&t=BUnb8U2YIQugzyGK-1&code-node-id=0-9"
+      }
+    ],
+    details: {
+      zh: [
+        { 
+          t: "概要", 
+          d: "「日本の『旬のめぐり』を食卓に。迷わない献立から始まる、新しい地方食材との出会い。」\n这是一款旨在破除消费者对未知地方食材的认知阻碍、连接产地直销与日常餐桌的食谱驱动型电商服务应用。\n日常生活中，许多人希望支持地方农业、品尝地道风土，却因“不会做、怕做坏”而陷入只买熟悉食材的“认知惯性”；而在故乡税（ふるさと納税）等政策利用中，又常因面对海量返礼品信息过载而陷入“选择瘫痪”。本项目通过逆向设计“以食谱为最小单元”的结构化购物车与AI对症推荐，将购买地方特色食材无缝融入日常自炊生活。" 
+        },
+        { 
+          t: "功能特点", 
+          d: "1. 结构化食谱购物车（献立パック）：颠覆按单品搜索选购的传统电商结构，以“1顿饭的食谱”为单位，一键将所需蔬菜、肉类与特色调味品打包放入购物车，消除选购决策疲劳。\n2. 盲盒食谱（ガチャレシピ）：融入游戏化探索，输入就餐人数与时间后轻触抽卡，随机偶遇小众地方食材与惊艳料理，激发自炊新鲜感与探索欲。\n3. AI对症食疗对话：根据用户当下的疲惫、食欲不振等微小身心状态，结合地方功能性食材（如传统野菜）智能推荐对症养生食谱。\n4. 智能故乡税结算切换：结算前系统自动匹配购物车食材是否存在对应的故乡税（ふるさと納税）返礼品版本，一键无缝转换，日用与惠民政策自然结合。\n5. 产地地图探索与社区共创：通过直观的日本地图探索各都道府县的风土物产与农家故事，并在社区中与料理爱好者分享烹饪心得与复购推荐。" 
+        },
+        { 
+          t: "制作过程", 
+          d: "课题背景：针对直销平台用户调研中发现的“认知惯性（害怕未知食材做坏）”以及故乡税年末集中申请的“认知摩擦（选择过多导致放弃）”两大痛点展开深层破局。\nAI赋能的高速验证与Vibe Coding：\n01 AI要件定义：运用大模型进行PRD（产品需求文档）的敏捷构建与功能边界梳理。\n02 落地页即时生成：通过 Vibe Coding 快速构建出包含业务概念与交互体验的Web Landing Page。\n03 Figma Make 组件化构建：利用 Figma Make 敏捷组织设计组件与页面层级，实现可运行的动态代码原型。\n04 高保真交互打磨：在 Figma 中完成完整视觉调优、品牌标志设计（融合食碗、筷子与购物篮编织纹理的十草花纹）及高保真原型交互流设定。" 
+        },
+        { 
+          t: "成果", 
+          d: "项目完成了从服务调研、品牌设计、高保真界面设计到可交互原型验证的完整闭环，并成功输出了4种不同形态的原型供全方位体验与验证。下方可直接点击体验各原型：" 
+        }
+      ],
+      jp: [
+        { 
+          t: "概要", 
+          d: "「日本の『旬のめぐり』を食卓に。迷わない献立から始まる、新しい地方食材との出会い。」\n日常の献立に悩む生活者と全国の地方生産者を最短距離で繋ぐ、レシピ駆動型の地産食材ECサービス。\n「地方の食文化を楽しみたい」という意向がありながらも、「調理法が分からず失敗が怖い」という認知の慣性や、ふるさと納税における「選択肢過多による情報過多・選択マヒ」を解消。日常の買い物の延長線上で旬の地方食材やふるさと納税をスマートに楽しめる仕組みを提案します。" 
+        },
+        { 
+          t: "特徴", 
+          d: "1. レシピから逆算する構造化カート（献立パック）：店舗別・食材単位のEC構造を刷新し、1食分のレシピに必要な食材をパック化して自動投入。何を買うかの思考コストをゼロに。\n2. ガチャレシピ（偶然の出合い）：人数や時間帯を指定してガチャを回すゲーミフィケーション機能。普段選ばない未知の地方食材との偶発的な出会いを創出。\n3. AIチャット診断と健康食生活：ユーザーの気分やプチ不調に寄り添い、身体を整える地方の機能性食材（伝統野菜など）を取り入れた処方箋レシピを提案。\n4. 決済直前の「直感型ふるさと納税」切り替え：カート内食材の返礼品対応を自動検知し、ワンタップでふるさと納税へ切り替え。年末の駆け込みや選択の手間を解消。\n5. 地図探索UIとコミュニティ循環：日本地図から産地のこだわりや農家のストーリーを可視化。購入履歴と連動したレコメンドで食材の使い切りを支援。" 
+        },
+        { 
+          t: "プロセス", 
+          d: "課題発見とリサーチ：生活者の「地方食材を試したいが失敗が怖い」という認知の慣性と、ふるさと納税における「年末の駆け込み・選択肢過多による認知負荷」という2大ペインを抽出。\nAI駆動の高速プロトタイピング（Vibe Coding）：\n01 AIによるPRD作成：LLMを活用して要件定義とペルソナ課題を迅速に構造化。\n02 PRDからのLPプロトタイプ生成：Vibe CodingによりWeb上で動作するランディングページを最速実装。\n03 FIGMA MAKEでのコンポーネント構成：Figma Makeを駆使し、コードベースで動くコンポーネントとUIを高速構築。\n04 詳細調整とロゴ策定：Figma上で高精度プロトタイプを仕上げ、伝統的なお椀・箸と買い物かごの編み目を融合させたミニマルなロゴデザインを策定。" 
+        },
+        { 
+          t: "成果", 
+          d: "リサーチからUI/UX、ブランディング、インタラクティブ実装までの一気通貫した成果物として、以下の4つのプロトタイプを公開・検証しています。下記カードより各プロトタイプを直接体験いただけます：" 
+        }
+      ],
+      en: [
+        { 
+          t: "Overview", 
+          d: "Meguri-Recipe is a recipe-driven local produce eCommerce and service design application connecting everyday dinner tables with regional farmers across Japan.\nOvercoming common psychological barriers—such as fear of unfamiliar cooking methods and decision paralysis from overwhelming catalog choices—it simplifies purchasing by structuring shopping carts around seasonal recipes rather than standalone raw ingredients." 
+        },
+        { 
+          t: "Features", 
+          d: "1. Recipe-Driven Structured Cart ('Menu Packs'): Automatically bundles meats, seasonal veggies, and seasonings required for a complete meal, eliminating ingredient-by-ingredient search friction.\n2. Recipe Gacha (Serendipitous Discovery): Gamified discovery suggesting unexpected recipes using unique regional ingredients based on meal time and party size.\n3. AI Conversational Dietary Diagnosis: Recommends nourishing recipes infused with functional regional crops tailored to users' physical fatigue or mood.\n4. One-Tap Furusato Nozei Conversion: Automatically detects if cart items qualify as hometown tax donation gifts, enabling seamless switching right before checkout.\n5. Interactive Map & Community: Visualizes regional farm stories via map UI, complemented by community sharing and intelligent leftover-recipe recommendations." 
+        },
+        { 
+          t: "Process", 
+          d: "Research & Pain Point Framing: Addressed user cognitive inertia (fear of wasting unfamiliar local ingredients) and the seasonal friction of Furusato Nozei.\nAI-Driven Vibe Coding Workflow:\n01 AI PRD Generation: Rapidly structured requirements and feature scopes using generative AI.\n02 Live LP Generation: Built and deployed a web landing page with interactive demos via Vibe Coding.\n03 Figma Make Component Architecture: Constructed runnable code components in record time using Figma Make.\n04 High-Fidelity UI & Branding: Polished micro-interactions in Figma and crafted the logo merging traditional Japanese bowl/chopsticks with woven shopping basket motifs." 
+        },
+        { 
+          t: "Results", 
+          d: "Delivered a complete end-to-end design from user research and branding to interactive validation, featuring 4 accessible prototype experiences available below:" 
+        }
+      ]
+    },
+    github: "https://github.com/Lizypeco/meguri-recipe1", 
+    figma: "https://www.figma.com/design/fwEP0PaBKFfbsyWU5mB94f/%E4%BA%A7%E5%9C%B0%E9%A3%9F%E6%9D%90?node-id=517-3" 
   },
   { 
     id: 2, 
@@ -901,6 +997,60 @@ const App = () => {
                         </div>
                       )}
 
+                      {/* Meguri-Recipe 特殊图组：功能特点板块 */}
+                      {selectedProject.id === 8 && (item.t === "功能特点" || item.t === "特徴" || item.t === "Features") && (
+                        <div className="mt-8 space-y-6">
+                          <div className="rounded-sm overflow-hidden shadow-md border border-stone-100">
+                            <img src="meguri-concept.png" alt="Core Concept & Structure" className="w-full h-auto" />
+                          </div>
+                          <div className="rounded-sm overflow-hidden shadow-md border border-stone-100">
+                            <img src="meguri-ui.png" alt="Main UI Design" className="w-full h-auto" />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Meguri-Recipe 特殊图组：制作过程板块 */}
+                      {selectedProject.id === 8 && (item.t === "制作过程" || item.t === "プロセス" || item.t === "Process") && (
+                        <div className="mt-8 space-y-6">
+                          <div className="rounded-sm overflow-hidden shadow-md border border-stone-100">
+                            <img src="meguri-process.png" alt="Design Process" className="w-full h-auto" />
+                          </div>
+                          <div className="rounded-sm overflow-hidden shadow-md border border-stone-100">
+                            <img src="meguri-logo.png" alt="Logo & Brand Identity" className="w-full h-auto" />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Meguri-Recipe 特殊图组：成果板块展示4大原型交互卡片 */}
+                      {selectedProject.id === 8 && (item.t === "成果" || item.t === "Results") && selectedProject.prototypes && (
+                        <div className="mt-8 space-y-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {selectedProject.prototypes.map((proto, pIdx) => (
+                              <a 
+                                key={pIdx} 
+                                href={proto.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="group/proto block p-5 rounded-sm border border-stone-200 bg-stone-50 hover:bg-white hover:border-[#5BB2DF] hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+                              >
+                                <div className="flex items-center justify-between mb-2">
+                                  <span className="text-[9px] font-mono font-black tracking-widest uppercase px-2 py-0.5 rounded-sm bg-[#9FD9F6]/30 text-[#0d6b4b]">
+                                    {proto.tag}
+                                  </span>
+                                  <ExternalLink size={16} className="text-stone-400 group-hover/proto:text-[#F59E0B] group-hover/proto:translate-x-0.5 group-hover/proto:-translate-y-0.5 transition-all" />
+                                </div>
+                                <h5 className="font-black text-sm md:text-base text-slate-800 group-hover/proto:text-[#5BB2DF] transition-colors mb-1.5 leading-snug">
+                                  {proto.name[lang]}
+                                </h5>
+                                <p className="text-slate-500 text-[11px] leading-relaxed font-light">
+                                  {proto.desc[lang]}
+                                </p>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
                       {/* FOREBIRD 特殊逻辑：功能特点下的图组 */}
                       {selectedProject.id === 3 && (item.t === "功能特点" || item.t === "特徴" || item.t === "Features") && (
                         <div className="mt-8 space-y-6">
@@ -969,6 +1119,12 @@ const App = () => {
                         <span className="font-black text-xs tracking-widest uppercase border-b border-stone-100 group-hover:border-orange-200">GOOD DESIGN NEW HOPE AWARD 2026</span>
                       </a>
                     )}
+                    {selectedProject.prototypes && selectedProject.prototypes.map((proto, pIdx) => (
+                      <a key={pIdx} href={proto.url} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-900 hover:text-[#5BB2DF] transition-colors group">
+                        <ExternalLink size={24} className="group-hover:scale-110 transition-transform text-[#5BB2DF]" />
+                        <span className="font-black text-xs tracking-widest uppercase border-b border-stone-100 group-hover:border-[#5BB2DF]">{proto.name[lang]}</span>
+                      </a>
+                    ))}
                     {selectedProject.github && selectedProject.github !== "#" && (
                       <a href={selectedProject.github} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-900 hover:text-orange-500 transition-colors group">
                         <GithubIcon size={24} className="group-hover:scale-110 transition-transform" />
